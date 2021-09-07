@@ -15,7 +15,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin/dashboard', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -28,6 +28,18 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/test', function () {
-    return Inertia::render('Example/Test', []);
+
+Route::get('/',function(){
+    return view('blog.pages.index');
 });
+
+
+Route::get('/example',function(){
+    return view('blog.pages.example');
+});
+
+Route::get('/login',function(){
+    return view('blog.pages.login');
+});
+
+require __DIR__ . '/web/admin.php';
