@@ -1,0 +1,21 @@
+[
+    {
+        "role": [
+            "developer",
+            "admin"
+        ],
+        "account": "samchen",
+        "name": "sam",
+        "email": "bcsunrsbh@gmail.com",
+        "password": "1q2w3E*"
+    },
+    {
+        "role": [
+            "admin"
+        ],
+        "account": "admin",
+        "name": "admin",
+        "email": "admin@gmail.com",
+        "password": "123qwe"
+    }
+]
