@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd7f86141937dfb050322c55bd71cc6b",
+    "content-hash": "cc018e4a3d3f2c39870903dbbe2a036f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3316,16 +3316,16 @@
         },
         {
             "name": "samchentw/common",
-            "version": "1.0.3",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samchentw/common.git",
-                "reference": "e163b090151ccac8495e47e1dda5455985479284"
+                "reference": "b299909ee03e11717849e81cc1cd86a1f183cbfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samchentw/common/zipball/e163b090151ccac8495e47e1dda5455985479284",
-                "reference": "e163b090151ccac8495e47e1dda5455985479284",
+                "url": "https://api.github.com/repos/samchentw/common/zipball/b299909ee03e11717849e81cc1cd86a1f183cbfd",
+                "reference": "b299909ee03e11717849e81cc1cd86a1f183cbfd",
                 "shasum": ""
             },
             "require": {
@@ -3349,22 +3349,22 @@
             ],
             "support": {
                 "issues": "https://github.com/samchentw/common/issues",
-                "source": "https://github.com/samchentw/common/tree/1.0.3"
+                "source": "https://github.com/samchentw/common/tree/2.1.0"
             },
-            "time": "2021-09-04T21:38:45+00:00"
+            "time": "2021-09-08T09:11:47+00:00"
         },
         {
             "name": "samchentw/permission",
-            "version": "1.0.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samchentw/permission.git",
-                "reference": "57f954a03ba40c7e347384be3dd45bcd83ec0b49"
+                "reference": "917aec23bee730ce417a15220c4322361afdd10e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samchentw/permission/zipball/57f954a03ba40c7e347384be3dd45bcd83ec0b49",
-                "reference": "57f954a03ba40c7e347384be3dd45bcd83ec0b49",
+                "url": "https://api.github.com/repos/samchentw/permission/zipball/917aec23bee730ce417a15220c4322361afdd10e",
+                "reference": "917aec23bee730ce417a15220c4322361afdd10e",
                 "shasum": ""
             },
             "require": {
@@ -3388,22 +3388,22 @@
             ],
             "support": {
                 "issues": "https://github.com/samchentw/permission/issues",
-                "source": "https://github.com/samchentw/permission/tree/1.0.0"
+                "source": "https://github.com/samchentw/permission/tree/2.1.1"
             },
-            "time": "2021-09-05T05:26:45+00:00"
+            "time": "2021-09-08T09:41:28+00:00"
         },
         {
             "name": "samchentw/settings",
-            "version": "1.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samchentw/settings.git",
-                "reference": "d07129ca2bbb66213642271ef23e1bdad1e65213"
+                "reference": "07a08438fc71688ad29349f0312f26e72d694bbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samchentw/settings/zipball/d07129ca2bbb66213642271ef23e1bdad1e65213",
-                "reference": "d07129ca2bbb66213642271ef23e1bdad1e65213",
+                "url": "https://api.github.com/repos/samchentw/settings/zipball/07a08438fc71688ad29349f0312f26e72d694bbc",
+                "reference": "07a08438fc71688ad29349f0312f26e72d694bbc",
                 "shasum": ""
             },
             "require": {
@@ -3427,9 +3427,9 @@
             ],
             "support": {
                 "issues": "https://github.com/samchentw/settings/issues",
-                "source": "https://github.com/samchentw/settings/tree/1.0.2"
+                "source": "https://github.com/samchentw/settings/tree/2.1.0"
             },
-            "time": "2021-09-04T21:43:04+00:00"
+            "time": "2021-09-08T09:12:50+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

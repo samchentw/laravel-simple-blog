@@ -13,9 +13,9 @@
         "laravel/jetstream": "^2.3",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
-        "samchentw/common": "^1.0",
-        "samchentw/permission": "^1.0",
-        "samchentw/settings": "^1.0",
+        "samchentw/common": "^2.1",
+        "samchentw/permission": "^2.1",
+        "samchentw/settings": "^2.1",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
