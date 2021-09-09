@@ -29,17 +29,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::get('/',function(){
-    return view('blog.pages.index');
-});
+// Route::get('/',function(){
+//     return view('blog.pages.index');
+// });
 
 
 Route::get('/example',function(){
     return view('blog.pages.example');
 });
 
-Route::get('/login',function(){
-    return view('blog.pages.login');
-});
+// Route::get('/login',function(){
+//     return view('blog.pages.login');
+// });
 
 require __DIR__ . '/web/admin.php';

@@ -3,7 +3,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
-
+import store from './Tools/store'
 /**
  * @see https://www.npmjs.com/package/vue-sweetalert2
  */
@@ -16,7 +16,7 @@ import 'sweetalert2/dist/sweetalert2.min.css';
  */
 import LitepieDatepicker from 'litepie-datepicker';
 
-import store from './Tools/store'
+
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
