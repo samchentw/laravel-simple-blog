@@ -36,6 +36,14 @@
           </tr>
         </table>
       </div>
+
+      <div class="text-center">
+        <CommonPagination
+          :pageCount="pageData.last_page"
+          :currentPath="pageData.current_page"
+          urlPath="/admin/permission-management/user-setting"
+        />
+      </div>
     </div>
   </AppLayout>
 </template>
@@ -43,18 +51,19 @@
 import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "@/Layouts/AppLayout";
 import UserModal from "@/Components/Modals/UserModal";
+import CommonPagination from "@/Components/Pagination/CommonPagination";
 
 export default {
   props: ["pageData"],
   components: {
     AppLayout,
     UserModal,
+    CommonPagination,
   },
   data() {
     return {};
   },
   created: function () {
-    // console.log(this.pageData.data);
   },
   computed: {
     users() {

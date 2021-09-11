@@ -29,9 +29,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-// Route::get('/',function(){
-//     return view('blog.pages.index');
-// });
+Route::get('/',function(){
+    return view('blog.pages.index');
+});
 
 
 Route::get('/example',function(){

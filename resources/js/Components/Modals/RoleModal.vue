@@ -50,10 +50,7 @@
               <form class="w-full max-w-lg">
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <div class="w-full px-3 mb-6 md:mb-0">
-                    <label
-                      class="block uppercase tracking-wide text-base font-bold mb-2"
-                      
-                    >
+                    <label class="block uppercase tracking-wide text-base font-bold mb-2">
                       名稱
                     </label>
                     <!--  border border-red-500 -->
@@ -83,26 +80,11 @@
                   <!-- toggle -->
 
                   <div class="w-full px-3">
-                    <div
-                      class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in"
-                    >
-                      <input
-                        v-model="form.is_default"
-                        type="checkbox"
-                        name="toggle"
-                        id="toggle"
-                        class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
-                      />
-                      <label
-                        for="toggle"
-                        class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
-                      ></label>
-                    </div>
-                    <label
-                      for="toggle"
-                      class="uppercase tracking-wide text-base font-bold mb-2"
-                      >是否為預設</label
-                    >
+                    <common-switch
+                      :defaultValue="form.is_default"
+                      @changeValue="form.is_default = $event"
+                      label="是否啟用"
+                    />
                   </div>
 
                   <div class="w-full px-3 mt-3">
@@ -114,8 +96,8 @@
                       >
 
                       <div class="space-x-4 mb-3" v-for="groupKey in groupKeys">
-                        <div> <span class="text-red-500">*</span> {{groupKey}}</div>
-                        
+                        <div><span class="text-red-500">*</span> {{ groupKey }}</div>
+
                         <div
                           class="inline-block ml-4"
                           v-for="p in group[groupKey]"
@@ -176,14 +158,16 @@
 </template>
 
 <script>
-
+import CommonSwitch from "@/components/Switch/CommonSwitch";
 export default {
   props: {
     id: {
       default: "",
     },
   },
-  name: "regular-modal",
+  components: {
+    CommonSwitch,
+  },
   data() {
     return {
       showModal: false,
@@ -194,8 +178,8 @@ export default {
         permissions: [],
         is_default: false,
       },
-      group:[],
-      groupKeys:[],
+      group: [],
+      groupKeys: [],
     };
   },
   created: function () {},
@@ -254,7 +238,6 @@ export default {
         this.permissions = response.data.permissions;
         this.group = response.data.groups;
         this.groupKeys = Object.keys(this.group);
-        
       });
     },
   },
@@ -262,15 +245,5 @@ export default {
 </script>
 
 <style scope>
-/* CHECKBOX TOGGLE SWITCH */
-/* @apply rules for documentation, these do not work as inline style */
-.toggle-checkbox:checked {
-  /* @apply: right-0 border-green-400; */
-  right: 0;
-  border-color: #68d391;
-}
-.toggle-checkbox:checked + .toggle-label {
-  /* @apply: bg-green-400; */
-  background-color: #68d391;
-}
+
 </style>
