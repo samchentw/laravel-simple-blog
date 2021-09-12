@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="/images/weiweiBear.png" type="image/x-icon" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="/css/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    
     <title>Simple Blog</title>
 </head>
 
-<body>
+<body class="bg-gray-300">
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.store('listItem', {
@@ -22,12 +23,11 @@
             //  console.log(this.$store.listItem.count)
             //  this.$store.listItem.count+=1;
         })
-
-       
+        document.documentElement.classList.add('dark');
     </script>
 
     @include('blog/layout/header')
-    <div class="wrap">
+    <div>
         @yield('content')
     </div>
     @include('blog/layout/footer')

@@ -15,7 +15,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/admin/dashboard', function () {
+Route::get('/admin/welcome', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -24,13 +24,22 @@ Route::get('/admin/dashboard', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
 
 Route::get('/',function(){
     return view('blog.pages.index');
+});
+
+
+Route::get('/blog/login',function(){
+    return view('blog.pages.member.login');
+});
+
+Route::get('/blog/index',function(){
+    return view('blog.pages.member.index');
 });
 
 

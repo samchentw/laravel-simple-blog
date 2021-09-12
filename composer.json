@@ -13,12 +13,13 @@
         "laravel/jetstream": "^2.3",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
-        "samchentw/common": "^2.1",
+        "samchentw/common": "^2.3",
         "samchentw/permission": "^2.1",
         "samchentw/settings": "^2.2",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.10",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "knuckleswtf/scribe": "^3.9",
