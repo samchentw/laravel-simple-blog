@@ -18,6 +18,9 @@ use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 use App\Http\Responses\LogoutResponse;
 use Laravel\Fortify\Contracts\LogoutResponse as LogoutResponseContract;
 
+use App\Http\Responses\RegisterResponse;
+use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
+
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -52,5 +55,6 @@ class FortifyServiceProvider extends ServiceProvider
 
         $this->app->singleton(LoginResponseContract::class, LoginResponse::class);
         $this->app->singleton(LogoutResponseContract::class, LogoutResponse::class);
+        $this->app->singleton(RegisterResponseContract::class, RegisterResponse::class);
     }
 }

@@ -3,8 +3,8 @@
 namespace App\Http\Responses;
 
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
-use Gate;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Str;
 
 class RegisterResponse implements RegisterResponseContract
 {
@@ -12,12 +12,13 @@ class RegisterResponse implements RegisterResponseContract
      * @author Sam
      * @param  $request
      * @return mixed
-     * @todo
      */
     public function toResponse($request)
     {
-        $home = RouteServiceProvider::HOME;
-
+        $previousUrl = url()->previous();
+        $fullUrl = url('/');
+        $check = Str::of($previousUrl)->replace($fullUrl, '')->startsWith('/register');
+        $home = $check  ? RouteServiceProvider::HOME : '/';
         return redirect()->intended($home);
     }
 }

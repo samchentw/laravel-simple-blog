@@ -2,46 +2,9 @@
 
 
 @section('content')
-
-    {{-- <div x-data="pageData()" class="h-screen flex justify-center items-center">
-        <div class="bg-white rounded-lg w-2/5 px-16 py-16">
-            <form  method="POST" action="{{ route('login') }}">
-                @csrf
-                <div class="flex font-bold justify-center">
-                    <img class="h-20 w-20"
-                        src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
-                </div>
-                <h2 class="text-3xl text-center text-gray-700 mb-4">會員登入</h2>
-                <div class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none"
-                    style="grid-template-columns: 7% 93%;">
-                    <div class="i">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="div">
-                        <h5>信箱</h5>
-                        <x-jet-input class="block mt-1 w-full" type="text" name="email" :value="old('email')" required autofocus />
-                    </div>
-                </div>
-                <div class="input-div border-b-2 relative grid my-5 py-1 focus:outline-none"
-                    style="grid-template-columns: 7% 93%;">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="div">
-                        <h5>密碼</h5>
-                        <x-jet-input class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-                    </div>
-                </div>
-                <a href="#" class="text-xs text-green-400 hover:text-green-500 float-right mb-4">忘記密碼?</a>
-                <button type="submit"
-                    class="w-full py-2 rounded-full bg-green-600 text-gray-100  focus:outline-none">登入</button>
-            </form>
-        </div>
-    </div> --}}
-
-    <div x-data="pageData()" class="mt-10 mb-10 justify-center items-center">
+    <div class="mt-10 mb-10 justify-center items-center">
         <div class="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-            <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">Blog</h1>
+            <h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">登入</h1>
 
             <form class="mt-6" method="POST" action="{{ route('login') }}">
                 @csrf
@@ -50,8 +13,6 @@
                     <x-jet-input
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                         type="text" name="email" :value="old('email')" required autofocus />
-                    {{-- <input type="text"
-                        class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"> --}}
                 </div>
 
                 <div class="mt-4">
@@ -62,8 +23,6 @@
                     <x-jet-input
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                         type="password" name="password" required autocomplete="current-password" />
-                    {{-- <input type="password"
-                        class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"> --}}
                 </div>
 
                 <div class="mt-6">
@@ -106,21 +65,9 @@
                 </a>
             </div> --}}
 
-            <p class="mt-8 text-xs font-light text-center text-gray-400"> 你還不是會員嗎? <a href="#"
+            <p class="mt-8 text-xs font-light text-center text-gray-400"> 你還不是會員嗎? <a href="/blog/register"
                     class="font-medium text-gray-800 dark:text-gray-200 hover:underline">註冊</a></p>
         </div>
 
     </div>
-
 @endsection
-
-<script>
-    function pageData() {
-        return {
-            btnClick() {
-                console.log("run...")
-            },
-            init() {}
-        }
-    }
-</script>

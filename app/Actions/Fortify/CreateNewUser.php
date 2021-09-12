@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Support\Facades\DB;
+use App\Models\Role;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -27,10 +29,26 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
 
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-        ]);
+        return DB::transaction(function () use ($input) {
+            return tap(User::create([
+                'name' => $input['name'],
+                'email' => $input['email'],
+                'password' => Hash::make($input['password'])
+            ]), function (User $user) {
+                $this->createRole($user);
+            });
+        });
+    }
+
+    /**
+     * 加入預設角色
+     * @author Sam
+     * @param  \App\Models\User  $user
+     * @return void
+     */
+    protected function createRole(User $user)
+    {
+        $roles = Role::where('is_default', true)->get();
+        $user->roles()->attach($roles);
     }
 }

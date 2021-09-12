@@ -29,26 +29,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin/dashboard', functio
 })->name('dashboard');
 
 
-Route::get('/',function(){
-    return view('blog.pages.index');
-});
-
-
-Route::get('/blog/login',function(){
-    return view('blog.pages.member.login');
-});
-
-Route::get('/blog/index',function(){
-    return view('blog.pages.member.index');
-});
-
-
-Route::get('/example',function(){
-    return view('blog.pages.example');
-});
-
-// Route::get('/login',function(){
-//     return view('blog.pages.login');
-// });
-
+require __DIR__ . '/web/blog.php';
 require __DIR__ . '/web/admin.php';
