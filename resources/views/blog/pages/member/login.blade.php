@@ -15,6 +15,8 @@
                         type="text" name="email" :value="old('email')" required autofocus />
                 </div>
 
+
+
                 <div class="mt-4">
                     <div class="flex items-center justify-between">
                         <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">密碼</label>
@@ -24,6 +26,8 @@
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                         type="password" name="password" required autocomplete="current-password" />
                 </div>
+
+                @include('blog.components.error')
 
                 <div class="mt-6">
                     <button
