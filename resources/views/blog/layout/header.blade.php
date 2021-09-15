@@ -27,13 +27,13 @@
                     <a href="/"
                         class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
                         首頁</a>
-                    <a href="#"
+                    <a href="/post"
                         class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
                         文章</a>
-                    <a href="#"
+                    <a href="/tag"
                         class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
-                        test</a>
-                    <a href="#"
+                        標籤</a>
+                    <a href="/example"
                         class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
                         test
                     </a>
@@ -50,7 +50,8 @@
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
-                        <div class="ml-3 relative">
+                        {{-- :class="!(mobileNar)?'block':'hidden'" --}}
+                        <div class="ml-3 relative"  > 
                             <div>
                                 <button type="button" x-on:click="onButtonClick()"
                                     class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
