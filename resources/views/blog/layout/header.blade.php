@@ -27,7 +27,7 @@
                     <a href="/"
                         class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
                         首頁</a>
-                    <a href="/post"
+                    <a href="/post/index"
                         class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
                         文章</a>
                     <a href="/tag"
@@ -75,10 +75,10 @@
                                 class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                                <a href="/blog/index" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                <a href="/member/index" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
                                     tabindex="-1" id="user-menu-item-0">個人資料</a>
-                                {{-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                    id="user-menu-item-1">設定</a> --}}
+                                <a href="/post/edit" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                    id="user-menu-item-1">新增文章</a>
 
                                 <form style="margin: 0;" class="block px-4 py-2 text-sm text-gray-700"
                                     method="POST" role="menuitem" tabindex="-1" action="{{ route('logout') }}">
@@ -95,11 +95,11 @@
 
                 @guest
                     <div class="flex items-center mt-4 md:mt-0">
-                        <a href="/blog/login"
+                        <a href="/member/login"
                             class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
                             登入</a>
 
-                        <a href="/blog/register"
+                        <a href="/member/register"
                             class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
                             註冊</a>
                     </div>

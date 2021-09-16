@@ -18,7 +18,7 @@ class LogoutResponse implements LogoutResponseContract
         $previousUrl = url()->previous();
         $fullUrl = url('/');
         $check = Str::of($previousUrl)->replace($fullUrl, '')->startsWith('/admin');
-        $redirectUrl = $check  ? '/login' : '/blog/login';
+        $redirectUrl = $check  ? '/login' : '/member/login';
         return redirect()->intended($redirectUrl);
     }
 }

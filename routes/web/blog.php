@@ -12,10 +12,26 @@ use App\Http\Controllers\Web\Blog;
 Route::get('/', [Blog\BlogController::class, 'index']);
 Route::get('/tag', [Blog\BlogController::class, 'tag']);
 Route::get('/example', [Blog\BlogController::class, 'example']);
-Route::get('/blog/login', [Blog\BlogController::class, 'login']);
-Route::get('/blog/register', [Blog\BlogController::class, 'register']);
+
 
 // post
-Route::get('/post', [Blog\BlogController::class, 'post']);
+Route::prefix('post')->name('post.')->group(function(){
 
-Route::get('/blog/index', [Blog\BlogController::class, 'blogIndex']);
+    Route::get('/index', [Blog\PostController::class, 'index']);
+    
+    Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+        Route::get('/edit/{id?}', [Blog\PostController::class, 'edit']);
+    });
+});
+
+Route::prefix('member')->name('member.')->group(function(){
+
+    Route::get('/login', [Blog\MemberController::class, 'login']);
+    Route::get('/register', [Blog\MemberController::class, 'register']);
+
+    Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+        Route::get('/index', [Blog\MemberController::class, 'index']);
+    });
+});
+
+

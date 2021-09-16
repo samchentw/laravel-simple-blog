@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="/images/weiweiBear.png" type="image/x-icon" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="stylesheet" href="/css/ckCustom.css"  type="text/css">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    
+ 
     <title>Simple Blog</title>
 </head>
 
@@ -36,6 +38,9 @@
     <script src="/js/alpinejs.min.js"></script>
     <script src="/js/lodash.min.js"></script>
     <script src="/js/moment.js"></script>
+    <script src="/js/ck5/ckeditor.js"></script>
+    <script src="/js/my-ck5.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/decoupled-document/ckeditor.js"></script> --}}
 </body>
 
 </html>

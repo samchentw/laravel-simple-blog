@@ -69,7 +69,7 @@
                 </a>
             </div> --}}
 
-            <p class="mt-8 text-xs font-light text-center text-gray-400"> 你還不是會員嗎? <a href="/blog/register"
+            <p class="mt-8 text-xs font-light text-center text-gray-400"> 你還不是會員嗎? <a href="/member/register"
                     class="font-medium text-gray-800 dark:text-gray-200 hover:underline">註冊</a></p>
         </div>
 
