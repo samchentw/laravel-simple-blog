@@ -9,7 +9,7 @@ use App\Http\Controllers\Web\Admin;
 
 //後台頁面 
 //路由： /admin
-Route::middleware(['auth:sanctum', 'verified'])->name('admin.')->prefix("admin")->group(function () {
+Route::middleware(['auth:sanctum', 'verified','can:Identity.Admin'])->name('admin.')->prefix("admin")->group(function () {
 
      //路由： /PermissionManagement
      Route::name('permission-management.')->prefix('permission-management')->group(function () {

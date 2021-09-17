@@ -24,4 +24,8 @@ class BlogController extends Controller
     public function example(){
         return view('blog.pages.example');
     }
+
+    public function verify(){
+        return view('blog.pages.verify');
+    }
 }

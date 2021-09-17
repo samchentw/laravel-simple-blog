@@ -1,4 +1,6 @@
-<nav class="bg-white shadow dark:bg-gray-800" x-data="header()">
+
+
+<nav class="bg-white shadow dark:bg-gray-800" x-data="header()" x-cloak>
     <div class="container px-6 py-4 mx-auto max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="md:flex md:items-center md:justify-between">
             <div class="flex items-center justify-between">
@@ -35,7 +37,7 @@
                         標籤</a>
                     <a href="/example"
                         class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
-                        test
+                        example
                     </a>
                 </div>
 
@@ -65,7 +67,7 @@
                                     </h3>
                                 </button>
                             </div>
-                            <div x-show="open" x-on:click.away="open = false"
+                            <div x-show="open"  x-on:click.away="open = false"
                                 x-transition:enter="transition ease-out duration-100"
                                 x-transition:enter-start="transform opacity-0 scale-95"
                                 x-transition:enter-end="transform opacity-100 scale-100"

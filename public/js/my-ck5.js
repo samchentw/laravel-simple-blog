@@ -1,22 +1,17 @@
 window.onload = () => {
     const watchdog = new CKSource.EditorWatchdog();
-
+   
+    window.watchdog = watchdog;
     watchdog.setCreator((element, config) => {
         return CKSource.Editor
             .create(element, config)
             .then(editor => {
-
-
-
-
+                window.editor = editor;
                 return editor;
             })
     });
 
     watchdog.setDestructor(editor => {
-
-
-
         return editor.destroy();
     });
 

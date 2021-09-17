@@ -26,4 +26,9 @@ class MemberController extends Controller
     {
         return view('blog.pages.member.index');
     }
+
+    public function changePassword(Request $request)
+    {
+        return view('blog.pages.member.change_password');
+    }
 }
