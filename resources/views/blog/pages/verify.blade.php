@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div x-data="pageData()"
+    <div
         class="bg-gray-200 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         {{-- start --}}
         <form style="margin: 0;" class="block px-4 py-2 text-sm text-gray-700" method="POST" role="menuitem" tabindex="-1"
@@ -21,12 +21,3 @@
     </div>
 @endsection
 
-<script>
-    function pageData() {
-        return {
-            init() {
-
-            }
-        }
-    }
-</script>
