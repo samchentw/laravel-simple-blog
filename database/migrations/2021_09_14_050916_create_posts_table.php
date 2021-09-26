@@ -19,10 +19,10 @@ class CreatePostsTable extends Migration
             $table->mediumText('body');
             $table->string('slug')->nullable();
             $table->integer('view_count')->unsigned()->default(0);
-            $table->integer('category_id')->unsigned()->index();
             $table->timestamps();
             
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->on('users');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade')->on('categories');
         });
     }
 
