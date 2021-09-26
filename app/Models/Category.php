@@ -20,6 +20,18 @@ use Samchentw\Common\Traits\Supports\HasSort;
  * @method static \Illuminate\Database\Eloquent\Builder|Category sortOrderBy()
  * @method static \Illuminate\Database\Eloquent\Builder|Category sortOrderByDesc()
  * @mixin \Eloquent
+ * @property int $id
+ * @property string $display_name
+ * @property bool $enable
+ * @property int $sort
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereDisplayName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereEnable($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereSort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
  */
 class Category extends Model
 {

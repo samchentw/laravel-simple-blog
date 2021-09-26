@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,6 +21,9 @@ use App\Http\Controllers\API;
  */
 
 Route::middleware('auth:sanctum')->group(function () {
+
+    Route::post('/post', [API\PostController::class, 'store']);
+
     Route::get('/example/user', [ExampleController::class, 'user']);
 
     //使用者 Api

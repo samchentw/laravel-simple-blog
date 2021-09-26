@@ -46,9 +46,7 @@
                 <span>功能列</span>
             </div>
             <div>
-                <a
-                    href="/member/index"
-                    x-bind:class="{'bg-gray-400':currentUrl=='member/index'}"
+                <a href="/member/index" x-bind:class="{'bg-gray-400':currentUrl=='member/index'}"
                     class="w-full bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                     <svg class="fill-current w-4 h-4 mr-2 svg-icon" viewBox="0 0 20 20">
                         <path
@@ -57,9 +55,7 @@
                     </svg>
                     <span>個人資料</span>
                 </a>
-                <a
-                href="/member/change-password"
-                x-bind:class="{'bg-gray-400':currentUrl=='member/change-password'}"
+                <a href="/member/change-password" x-bind:class="{'bg-gray-400':currentUrl=='member/change-password'}"
                     class="w-full bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                     <svg class="fill-current w-4 h-4 mr-2" viewBox="0 0 20 20">
                         <path
@@ -68,7 +64,7 @@
                     </svg>
                     <span>修改密碼</span>
                 </a>
-                <button
+                <a href="/member/post-list" x-bind:class="{'bg-gray-400':currentUrl=='member/post-list'}"
                     class="w-full bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                     <svg class="fill-current w-4 h-4 mr-2" viewBox="0 0 20 20">
                         <path
@@ -76,8 +72,8 @@
                         </path>
                     </svg>
                     <span>個人文章</span>
-                </button>
-                <button
+                </a>
+                <a
                     class="w-full bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                     <svg class="fill-current w-4 h-4 mr-2" viewBox="0 0 20 20">
                         <path
@@ -85,7 +81,7 @@
                         </path>
                     </svg>
                     <span>回覆記錄</span>
-                </button>
+                </a>
 
             </div>
         </div>
@@ -94,10 +90,10 @@
 
 
     <script>
-        function memberSidebar(){
+        function memberSidebar() {
             return {
-                currentUrl:"",
-                init(){
+                currentUrl: "",
+                init() {
                     this.currentUrl = @json(Request::path());
                 }
             }

@@ -75,7 +75,6 @@ class UserController extends Controller
     /**
      * @group UserController(使用者)
      * user3.修改使用者
-     * @todo 可以修改密碼或另開api
      * 
      * @bodyParam  name string required 
      * @bodyParam  role_ids int[] required 
@@ -85,7 +84,6 @@ class UserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'password' => $this->passwordRules(),
             'role_ids' => ['array','nullable']
         ]);
         $user = $this->userRepository->getById($id);

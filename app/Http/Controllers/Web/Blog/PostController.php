@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Blog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Repositories\CategoryRepository;
 
 class PostController extends Controller
 {

@@ -85,8 +85,6 @@
     <script src="/js/lodash.min.js"></script>
     <script src="/js/moment.js"></script>
     <script src="/js/sweetalert2@11.js"></script>
-
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/decoupled-document/ckeditor.js"></script> --}}
 </body>
 
 </html>
