@@ -20,10 +20,12 @@ class PostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @group PostController(文章)
+     * post1.建立文章
+     * 
+     * @bodyParam  title string required 標題
+     * @bodyParam  body string required 內容
+     * @bodyParam  categoryId int required 類別Id
      */
     public function store(Request $request)
     {

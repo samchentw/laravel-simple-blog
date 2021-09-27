@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/post', [API\PostController::class, 'store']);
 
-    Route::get('/example/user', [ExampleController::class, 'user']);
+    // Route::get('/example/user', [ExampleController::class, 'user']);
 
     //使用者 Api
     Route::prefix('user')->name('user.')->group(function () {
