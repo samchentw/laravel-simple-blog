@@ -11,10 +11,17 @@ use App\Http\Controllers\Web\Admin;
 //路由： /admin
 Route::middleware(['auth:sanctum', 'verified','can:Identity.Admin'])->name('admin.')->prefix("admin")->group(function () {
 
-     //路由： /PermissionManagement
+     //路由： /permission-management
      Route::name('permission-management.')->prefix('permission-management')->group(function () {
         Route::get('/role-setting', [Admin\AdminController::class, "roleSetting"])->name('roleSetting');
         Route::get('/user-setting', [Admin\AdminController::class, "userSetting"])->name('userSetting');
+    });
+
+      //路由： /blog
+      Route::name('blog.')->prefix('blog')->group(function () {
+        Route::get('/post', [Admin\BlogController::class, "post"])->name('post');
+        Route::get('/tag', [Admin\BlogController::class, "tag"])->name('tag');
+        Route::get('/category', [Admin\BlogController::class, "category"])->name('category');
     });
 
     //路由： /example

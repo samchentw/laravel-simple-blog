@@ -19,16 +19,8 @@
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </jet-nav-link>
-
-                                <jet-nav-link :href="route('admin.permission-management.roleSetting')" :active="route().current('admin.permission-management.roleSetting')">
-                                    Role
-                                </jet-nav-link>
-
-                                 <jet-nav-link :href="route('admin.permission-management.userSetting')" :active="route().current('admin.permission-management.userSetting')">
-                                    User
+                                <jet-nav-link v-for="(item) in narbar"  :href="route(item.route)" :active="route().current(item.route)">
+                                    {{item.label}}
                                 </jet-nav-link>
                             </div>
                         </div>
@@ -150,16 +142,8 @@
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <jet-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
-                        </jet-responsive-nav-link>
-
-                        <jet-responsive-nav-link :href="route('admin.permission-management.roleSetting')" :active="route().current('admin.permission-management.roleSetting')">
-                                    Role
-                        </jet-responsive-nav-link>
-
-                        <jet-responsive-nav-link :href="route('admin.permission-management.userSetting')" :active="route().current('admin.permission-management.userSetting')">
-                                    User
+                        <jet-responsive-nav-link  v-for="(item) in narbar" :href="route(item.route)" :active="route().current(item.route)">
+                            {{item.label}}
                         </jet-responsive-nav-link>
                     </div>
 
@@ -275,6 +259,32 @@
         data() {
             return {
                 showingNavigationDropdown: false,
+                narbar:[
+                    {
+                        label:'儀表板',
+                        route:'dashboard'
+                    },
+                    {
+                        label:'角色管理',
+                        route:'admin.permission-management.roleSetting'
+                    },
+                    {
+                        label:'使用者管理',
+                        route:'admin.permission-management.userSetting'
+                    },
+                    {
+                        label:'文章管理',
+                        route:'admin.blog.post'
+                    },
+                    {
+                        label:'標籤管理',
+                        route:'admin.blog.tag'
+                    },
+                    {
+                        label:'類別管理',
+                        route:'admin.blog.category'
+                    }
+                ]
             }
         },
 

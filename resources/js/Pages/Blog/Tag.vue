@@ -1,7 +1,7 @@
 <template>
-   <AppLayout title="title">
+   <AppLayout title="Tag">
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">title</h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Tag</h2>
     </template>
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
       <div class="container mb-6 pt-5 px-4 mx-auto">

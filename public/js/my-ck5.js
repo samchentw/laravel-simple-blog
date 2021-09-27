@@ -19,9 +19,6 @@ window.onload = () => {
 
     watchdog
         .create(document.querySelector('#editor'), {
-            generalHtmlSupport:{
-                
-            },
             toolbar: {
                 items: [
                     'heading', '|',
@@ -89,10 +86,10 @@ window.onload = () => {
         .catch(handleError);
 
     function handleError(error) {
-        console.error('Oops, something went wrong!');
-        console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
-        console.warn('Build id: ukq02hgqlgoz-nohdljl880ze');
-        console.error(error);
+        // console.error('Oops, something went wrong!');
+        // console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+        // console.warn('Build id: ukq02hgqlgoz-nohdljl880ze');
+        // console.error(error);
     }
 
 }
