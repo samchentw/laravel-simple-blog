@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Repositories\PostRepository;
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -29,17 +30,16 @@ class PostController extends Controller
         $request->validate([
             'title' => ['string', 'required'],
             'body' => ['string', 'required'],
-            'categoryId' => ['numeric']
+            'categoryId' => [
+                'numeric', 'required',
+                Rule::exists('categories', 'id')
+            ]
         ]);
-        
-        $fillable = $this->postRepository->getFillable();
-      
-        $post = $this->postRepository->getModel()->fill($request->only($fillable));
-      
-        $user = $request->user();
-        $post->user()->associate($user);
-        $post->category()->associate($request->categoryId);
 
+        $fillable = $this->postRepository->getFillable();
+        $post = $this->postRepository->getModel()->fill($request->only($fillable));
+        $post->user()->associate($request->user());
+        $post->category()->associate($request->categoryId);
         $post->save();
     }
 }

@@ -19,7 +19,9 @@ window.onload = () => {
 
     watchdog
         .create(document.querySelector('#editor'), {
-
+            generalHtmlSupport:{
+                
+            },
             toolbar: {
                 items: [
                     'heading', '|',
@@ -33,7 +35,7 @@ window.onload = () => {
                     'code', 'codeBlock', '|',
                     'insertTable', '|',
                     'uploadImage', 'blockQuote', '|',
-                    'undo', 'redo'
+                    'undo', 'redo',
                 ],
                 shouldNotGroupWhenFull: true
             },
@@ -56,36 +58,29 @@ window.onload = () => {
             },
             codeBlock: {
                 languages: [
-                    // Do not render the CSS class for the plain text code blocks.
-                    {
-                        language: 'plaintext',
-                        label: 'Plain text',
-                        class: ''
-                    },
-
-                    // Use the "php-code" class for PHP code blocks.
-                    {
-                        language: 'php',
-                        label: 'PHP',
-                        class: 'php-code'
-                    },
-
-                    // Use the "js" class for JavaScript code blocks.
-                    // Note that only the first ("js") class will determine the language of the block when loading data.
-                    {
-                        language: 'javascript',
-                        label: 'JavaScript',
-                        class: 'js javascript js-code'
-                    },
-
-                    // Python code blocks will have the default "language-python" CSS class.
-                    {
-                        language: 'python',
-                        label: 'Python'
-                    }
+                    { language: 'plaintext', label: 'Plain text' }, // The default language.
+                    { language: 'c', label: 'C' },
+                    { language: 'cs', label: 'C#' },
+                    { language: 'cpp', label: 'C++' },
+                    { language: 'css', label: 'CSS' },
+                    { language: 'diff', label: 'Diff' },
+                    { language: 'html', label: 'HTML' },
+                    { language: 'java', label: 'Java' },
+                    { language: 'javascript', label: 'JavaScript' },
+                    { language: 'php', label: 'PHP' },
+                    { language: 'python', label: 'Python' },
+                    { language: 'ruby', label: 'Ruby' },
+                    { language: 'typescript', label: 'TypeScript' },
+                    { language: 'xml', label: 'XML' }
                 ]
+            },
+            simpleUpload: {
+                uploadUrl: 'http://127.0.0.1/upload',
+                /**
+                 * @todo 接後端上傳圖片api
+                 */
+                // Feature configuration.
             }
-
             // licenseKey: '',
 
 

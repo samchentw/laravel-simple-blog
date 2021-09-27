@@ -1,15 +1,10 @@
 @extends('blog.index')
 
-
 @section('content')
     <div x-data="pageData()"
         class="bg-gray-200 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        {{-- start --}}
-
-
         <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
             <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">新增文章</h2>
-
             <form class="w-full">
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-full px-3 mt-3 mb-6 md:mb-0">
@@ -20,11 +15,12 @@
 
                     <div class="w-full md:w-w-full px-3 mt-3 mb-6 md:mb-0">
                         <label class="text-gray-700 dark:text-gray-200" for="emailAddress">選擇分類</label>
-                        <select x-model="selectedOption"
+                        <select
+                            x-model.number="form.categoryId"
                             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-                            <option value="">請選擇分類</option>
+                            <option :value="+0">請選擇分類</option>
                             <template x-for="option in options">
-                                <option :key="option.value" :value="option.value" x-text="option.text"></option>
+                                <option :key="option.value" :value="+option.value" x-text="option.text"></option>
                             </template>
 
 
@@ -38,12 +34,10 @@
                             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                     </div>
 
-
-                    <!-- The toolbar will be rendered in this container. -->
                     <div class="w-full md:w-w-full px-3 mt-3 mb-6 md:mb-0">
                         <label class="text-gray-700 dark:text-gray-200" for="emailAddress">內容</label>
                         <div id="editor">
-
+                            {{-- <p>This is some sample content.</p> --}}
                         </div>
                     </div>
                 </div>
@@ -54,8 +48,6 @@
                 </div>
             </form>
         </section>
-
-
         {{-- end --}}
     </div>
 @endsection
@@ -64,31 +56,30 @@
 <script src="/js/ck5/ckeditor.js"></script>
 <script>
     function pageData() {
-
         return {
-            selectedOption: '',
-            form: {},
-            options: [{
-                    value: "狗狗日常",
-                    text: "狗狗日常",
-                },
-                {
-                    value: "程式筆記",
-                    text: "程式筆記",
-                },
-            ],
+            form: {
+                categoryId:0,
+                title:'',
+                body:''
+            },
+            options: [],
             create() {
-                // console.log(editor.getData())
                 this.form.body = editor.getData();
-                axios.post('/api/post', json).then(x => {
-
+                axios.post('/api/post', this.form).then(x => {
+                    successAlert('建立成功！')
+                    location.href = "/"
+                }).catch(err=>{
+                    errorForApi(err);
                 })
             },
             init() {
-                // console.log(watchdog)
-                // watchdog.model.document.on('change:data', () => {
-                //     console.log('The data has changed!');
-                // });
+                let categories = @json($categories);
+                this.options = categories.map(m => {
+                    return {
+                        value: m.id,
+                        text: m.display_name
+                    };
+                });
             }
         }
     }

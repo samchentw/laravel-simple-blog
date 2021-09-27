@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Web\Blog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Repositories\PostRepository;
+use App\Models\Post;
 class MemberController extends Controller
 {
-    public function __construct()
+    private $postRepository;
+
+    public function __construct(
+        PostRepository $PostRepository
+    )
     {
-        
+        $this->postRepository = $PostRepository;        
     }
 
     public function login(Request $request)
@@ -34,6 +39,8 @@ class MemberController extends Controller
 
     public function postList(Request $request)
     {
-        return view('blog.pages.member.post_list');
+        $postQuery = $this->postRepository->getQuery();
+        $posts = $postQuery->where('user_id',$request->user()->id)->get();
+        return view('blog.pages.member.post_list',compact('posts'));
     }
 }

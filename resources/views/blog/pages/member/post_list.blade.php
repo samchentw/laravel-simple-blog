@@ -2,7 +2,8 @@
 
 
 @section('content')
-    <div class="bg-gray-200 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div x-data="pageData()"
+        class="bg-gray-200 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div class="bg-gray-100">
             <div class="container mx-auto my-5 p-5">
                 <div class="md:flex no-wrap md:-mx-2 ">
@@ -14,20 +15,26 @@
                         <!-- About Section -->
                         <div class="bg-white p-3 shadow-sm rounded-sm">
                             <div class="w-full">
-                                <div class="px-6 py-4">
-                                    <h4 class="mb-3 text-xl font-semibold tracking-tight text-gray-800">This is the title
-                                    </h4>
-                                    <p class="leading-normal text-gray-700">Lorem ipsum dolor, sit amet cons ectetur
-                                        adipis icing elit. Praesen tium, quibusdam facere quo laborum maiores sequi nam
-                                        tenetur laud.</p>
-                                    <div>
-                                        <a href="">編輯</a>
-                                        <a href="">刪除</a>
-                                    </div>
-                                </div>
-                                <hr>
+                                <template x-for="(post) in posts">
+                                    <span>
+                                        <div class="px-6 py-4">
+                                            <h4 class="mb-3 text-xl font-semibold tracking-tight text-gray-800">
+                                                <span x-text="post.title"></span>
+                                            </h4>
+                                            <p class="leading-normal text-gray-700">
+                                                <span class="ck-content" x-html="post.body"></span>
+                                            </p>
+                                            <div>
+                                                <a href="">編輯</a>
+                                                <a href="">刪除</a>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </span>
+                                </template>
 
-                                <div class="px-6 py-4">
+
+                                {{-- <div class="px-6 py-4">
                                     <h4 class="mb-3 text-xl font-semibold tracking-tight text-gray-800">This is the title
                                     </h4>
                                     <p class="leading-normal text-gray-700">Lorem ipsum dolor, sit amet cons ectetur
@@ -37,7 +44,7 @@
                                         <a href="">編輯</a>
                                         <a href="">刪除</a>
                                     </div>
-                                </div>
+                                </div> --}}
 
 
                             </div>
@@ -54,3 +61,16 @@
 
 
 @endsection
+
+
+<script>
+    function pageData() {
+        return {
+            posts: [],
+            init() {
+                let posts = @json($posts);
+                this.posts = posts;
+            }
+        }
+    }
+</script>

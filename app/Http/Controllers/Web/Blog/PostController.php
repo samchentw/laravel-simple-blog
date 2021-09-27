@@ -9,8 +9,13 @@ use App\Repositories\CategoryRepository;
 class PostController extends Controller
 {
 
-    public function __construct()
+    private $categoryRepository;
+
+    public function __construct(
+        CategoryRepository $CategoryRepository
+    )
     {
+        $this->categoryRepository = $CategoryRepository;
     }
 
 
@@ -21,6 +26,7 @@ class PostController extends Controller
 
     public function edit(Request $request, $id = 0)
     {
-        return view('blog.pages.post.edit');
+        $categories = $this->categoryRepository->getAllForFront();
+        return view('blog.pages.post.edit',compact('categories'));
     }
 }

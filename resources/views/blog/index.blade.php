@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="/images/weiweiBear.png" type="image/x-icon" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="stylesheet" href="/css/ck-content.css" type="text/css">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <style>
