@@ -44,4 +44,30 @@ class PostController extends Controller
         $post->category()->associate($request->categoryId);
         $post->save();
     }
+
+
+    /**
+     * @group PostController(文章)
+     * post1.修改文章
+     * 
+     * @bodyParam  title string required 標題
+     * @bodyParam  body string required 內容
+     * @bodyParam  categoryId int required 類別Id
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => ['string', 'required'],
+            'body' => ['string', 'required'],
+            'categoryId' => [
+                'numeric', 'required',
+                Rule::exists('categories', 'id')
+            ]
+        ]);
+
+        $fillable = $this->postRepository->getFillable();
+        $post = $this->postRepository->getById($id);
+        $post->category()->associate($request->categoryId);
+        $post->update($request->only($fillable));
+    }
 }

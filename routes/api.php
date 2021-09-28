@@ -23,6 +23,7 @@ use App\Http\Controllers\API;
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/post', [API\PostController::class, 'store']);
+    Route::put('/post/{id}', [API\PostController::class, 'update']);
 
     // Route::get('/example/user', [ExampleController::class, 'user']);
 

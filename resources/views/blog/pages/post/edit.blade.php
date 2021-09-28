@@ -15,12 +15,11 @@
 
                     <div class="w-full md:w-w-full px-3 mt-3 mb-6 md:mb-0">
                         <label class="text-gray-700 dark:text-gray-200" for="emailAddress">選擇分類</label>
-                        <select
-                            x-model.number="form.categoryId"
+                        <select x-model.number="form.categoryId"
                             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                             <option :value="+0">請選擇分類</option>
                             <template x-for="option in options">
-                                <option :key="option.value" :value="+option.value" x-text="option.text"></option>
+                                <option :key="option.value" :value="option.value" x-text="option.text"></option>
                             </template>
 
 
@@ -37,15 +36,22 @@
                     <div class="w-full md:w-w-full px-3 mt-3 mb-6 md:mb-0">
                         <label class="text-gray-700 dark:text-gray-200" for="emailAddress">內容</label>
                         <div id="editor">
-                            {{-- <p>This is some sample content.</p> --}}
+                            <span x-html="form.body"></span>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex justify-end mt-6">
-                    <button type="button" x-on:click="create()"
-                        class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">儲存</button>
-                </div>
+                @if (isset($post))
+                    <div class="flex justify-end mt-6">
+                        <button type="button" x-on:click="update()"
+                            class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">修改</button>
+                    </div>
+                @else
+                    <div class="flex justify-end mt-6">
+                        <button type="button" x-on:click="create()"
+                            class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">儲存</button>
+                    </div>
+                @endif
             </form>
         </section>
         {{-- end --}}
@@ -58,9 +64,9 @@
     function pageData() {
         return {
             form: {
-                categoryId:0,
-                title:'',
-                body:''
+                categoryId: 0,
+                title: '',
+                body: ''
             },
             options: [],
             create() {
@@ -68,11 +74,21 @@
                 axios.post('/api/post', this.form).then(x => {
                     successAlert('建立成功！')
                     location.href = "/"
-                }).catch(err=>{
+                }).catch(err => {
+                    errorForApi(err);
+                })
+            },
+            update() {
+                this.form.body = editor.getData();
+                axios.put('/api/post/' + this.form.id, this.form).then(x => {
+                    successAlert('更新成功！')
+                    location.href = "/"
+                }).catch(err => {
                     errorForApi(err);
                 })
             },
             init() {
+                this.form = @json($post ?? []);
                 let categories = @json($categories);
                 this.options = categories.map(m => {
                     return {
