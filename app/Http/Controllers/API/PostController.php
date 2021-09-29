@@ -32,7 +32,7 @@ class PostController extends Controller
         $request->validate([
             'title' => ['string', 'required'],
             'body' => ['string', 'required'],
-            'categoryId' => [
+            'category_id' => [
                 'numeric', 'required',
                 Rule::exists('categories', 'id')
             ]
@@ -41,14 +41,14 @@ class PostController extends Controller
         $fillable = $this->postRepository->getFillable();
         $post = $this->postRepository->getModel()->fill($request->only($fillable));
         $post->user()->associate($request->user());
-        $post->category()->associate($request->categoryId);
+        $post->category()->associate($request->category_id);
         $post->save();
     }
 
 
     /**
      * @group PostController(文章)
-     * post1.修改文章
+     * post2.修改文章
      * 
      * @bodyParam  title string required 標題
      * @bodyParam  body string required 內容
@@ -59,7 +59,7 @@ class PostController extends Controller
         $request->validate([
             'title' => ['string', 'required'],
             'body' => ['string', 'required'],
-            'categoryId' => [
+            'category_id' => [
                 'numeric', 'required',
                 Rule::exists('categories', 'id')
             ]
@@ -67,7 +67,22 @@ class PostController extends Controller
 
         $fillable = $this->postRepository->getFillable();
         $post = $this->postRepository->getById($id);
-        $post->category()->associate($request->categoryId);
+        $this->authorize('update', $post);
+
+        $post->category()->associate($request->category_id);
         $post->update($request->only($fillable));
+    }
+
+
+    /**
+     * @group PostController(文章)
+     * post3.刪除文章
+     * 
+     */
+    public function delete(Request $request, $id)
+    {
+        $post = $this->postRepository->getById($id);
+        $this->authorize('delete', $post);
+        $this->postRepository->destroy($id);
     }
 }

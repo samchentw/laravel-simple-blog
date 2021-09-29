@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/post', [API\PostController::class, 'store']);
     Route::put('/post/{id}', [API\PostController::class, 'update']);
+    Route::delete('/post/{id}', [API\PostController::class, 'delete']);
 
     // Route::get('/example/user', [ExampleController::class, 'user']);
 

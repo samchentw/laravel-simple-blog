@@ -33,6 +33,23 @@
         })
         document.documentElement.classList.add('dark');
 
+        function confirmAlert(title, text) {
+            return Swal.fire({
+                title: title,
+                text: text,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '確認',
+                cancelButtonText: '取消',
+            });
+            // .then((result) => {
+            //     if (result.isConfirmed) {
+
+            //     }
+            // })
+        }
 
         function successAlert(title) {
             Swal.fire({

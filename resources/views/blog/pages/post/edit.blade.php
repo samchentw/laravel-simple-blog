@@ -15,11 +15,12 @@
 
                     <div class="w-full md:w-w-full px-3 mt-3 mb-6 md:mb-0">
                         <label class="text-gray-700 dark:text-gray-200" for="emailAddress">選擇分類</label>
-                        <select x-model.number="form.categoryId"
+                        <select x-model.number="form.category_id"
                             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                             <option :value="+0">請選擇分類</option>
-                            <template x-for="option in options">
-                                <option :key="option.value" :value="option.value" x-text="option.text"></option>
+                            <template x-for="option in options" :key="option.value">
+                                <option :key="option.value" x-bind:selected="option.value == form.category_id"
+                                    :value="option.value" x-text="option.text"></option>
                             </template>
 
 
@@ -64,7 +65,7 @@
     function pageData() {
         return {
             form: {
-                categoryId: 0,
+                category_id: 0,
                 title: '',
                 body: ''
             },
@@ -88,7 +89,7 @@
                 })
             },
             init() {
-                this.form = @json($post ?? []);
+                this.form = @json($post ?? ['body' => '']);
                 let categories = @json($categories);
                 this.options = categories.map(m => {
                     return {

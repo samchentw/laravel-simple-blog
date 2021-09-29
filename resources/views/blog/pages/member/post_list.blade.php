@@ -25,8 +25,8 @@
                                                 <span class="ck-content" x-html="post.body"></span>
                                             </p>
                                             <div>
-                                                <a href="">編輯</a>
-                                                <a href="">刪除</a>
+                                                <a x-bind:href="'/post/edit/'+post.id">編輯</a>
+                                                <a href="javascript:void(0)" x-on:click="deletePost(post.id)">刪除</a>
                                             </div>
                                         </div>
                                         <hr>
@@ -67,6 +67,21 @@
     function pageData() {
         return {
             posts: [],
+            deletePost(id) {
+                confirmAlert('系統訊息', '確認要刪除嗎？').then(result => {
+                    if (result.isConfirmed) {
+                        axios.delete('/api/post/' + id).then(x => {
+                            successAlert("刪除成功！");
+                            location.href = "/member/post-list";
+                        }).catch(err => {
+                            errorForApi(err);
+                        })
+                    }
+                })
+            },
+            loadPost() {
+                // axios.get('/api/')
+            },
             init() {
                 let posts = @json($posts);
                 this.posts = posts;
