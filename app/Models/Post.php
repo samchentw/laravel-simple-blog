@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Tag;
 
 /**
  * App\Models\Post
@@ -43,7 +44,12 @@ class Post extends Model
         'title', 'body', 'slug',
     ];
 
-    // relation
+
+    public function tags()
+    {
+        return $this->hasMany(Tag::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

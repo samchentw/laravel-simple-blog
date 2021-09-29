@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Str;
+use App\Helpers\RedirectHelper;
 
 class Authenticate extends Middleware
 {
@@ -15,7 +17,9 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            return route('blog.member.login');
+            $currentUrl = url()->current();
+            $redirectUrl = RedirectHelper::getLoginUrl($currentUrl);
+            return $redirectUrl;
         }
     }
 }

@@ -7,19 +7,22 @@ use Illuminate\Http\Request;
 use App\Repositories\CategoryRepository;
 use App\Repositories\PostRepository;
 
-
 class PostController extends Controller
 {
 
-    private $categoryRepository,$postRepository;
+    private $categoryRepository, $postRepository;
 
     public function __construct(
         CategoryRepository $CategoryRepository,
         PostRepository $PostRepository
-    )
-    {
+    ) {
         $this->categoryRepository = $CategoryRepository;
         $this->postRepository = $PostRepository;
+    }
+
+    // todo
+    public function show($id, $slug)
+    {
     }
 
 
@@ -32,15 +35,15 @@ class PostController extends Controller
     {
         $categories = $this->categoryRepository->getAllForFront();
 
-        if($id != 0){
+        if ($id != 0) {
             $post =  $this->postRepository->getById($id);
-            if($request->user()->id != $post->user_id){
+            if ($request->user()->id != $post->user_id) {
                 abort(404);
-            }else{
-                return view('blog.pages.post.edit',compact('categories','post'));
+            } else {
+                return view('blog.pages.post.edit', compact('categories', 'post'));
             }
         }
 
-        return view('blog.pages.post.edit',compact('categories'));
+        return view('blog.pages.post.edit', compact('categories'));
     }
 }

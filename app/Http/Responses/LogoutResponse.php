@@ -5,6 +5,7 @@ namespace App\Http\Responses;
 
 use Laravel\Fortify\Contracts\LogoutResponse as LogoutResponseContract;
 use Illuminate\Support\Str;
+use App\Helpers\RedirectHelper;
 
 class LogoutResponse implements LogoutResponseContract
 {
@@ -16,10 +17,7 @@ class LogoutResponse implements LogoutResponseContract
     public function toResponse($request)
     {
         $previousUrl = url()->previous();
-        $fullUrl = url('/');
-        $urlStrOf = Str::of($previousUrl)->replace($fullUrl, '');
-        $check = $urlStrOf->startsWith('/admin') || $urlStrOf->startsWith('/user');
-        $redirectUrl = $check  ? '/login' : '/member/login';
+        $redirectUrl = RedirectHelper::getLoginUrl($previousUrl);
         return redirect()->intended($redirectUrl);
     }
 }

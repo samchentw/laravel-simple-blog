@@ -26,7 +26,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/post/{id}', [API\PostController::class, 'update']);
     Route::delete('/post/{id}', [API\PostController::class, 'delete']);
 
-    // Route::get('/example/user', [ExampleController::class, 'user']);
+    // 類別管理
+    Route::resource('category', API\CategoryController::class);
 
     //使用者 Api
     Route::prefix('user')->name('user.')->group(function () {
