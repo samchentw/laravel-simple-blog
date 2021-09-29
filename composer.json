@@ -14,7 +14,7 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
         "samchentw/common": "^2.3",
-        "samchentw/permission": "^2.1",
+        "samchentw/permission": "^2.3",
         "samchentw/settings": "^2.3",
         "tightenco/ziggy": "^1.0"
     },

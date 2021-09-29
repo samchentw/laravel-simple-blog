@@ -9,6 +9,7 @@ use Samchentw\Permission\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Actions\Fortify\PasswordValidationRules;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -63,9 +64,9 @@ class UserController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-            ]), function ($user) use ($request) {
+            ]), function (User $user) use ($request) {
                 $roles = $this->roleRepository->getRolesByIds($request->input('role_ids', []));
-                $user->roles()->attach($roles);
+                $user->addRolesByIds($roles);
             });
         });
     }
@@ -86,8 +87,9 @@ class UserController extends Controller
             // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'role_ids' => ['array','nullable']
         ]);
-        $user = $this->userRepository->getById($id);
-        $user->roles()->sync($request->input('role_ids', []));
+        
+        $user= $this->userRepository->getById($id);
+        $user->syncRoleByIds($request->input('role_ids', []));
         $this->userRepository->update([
             'name' => $request->name,
             // 'email' => $request->email

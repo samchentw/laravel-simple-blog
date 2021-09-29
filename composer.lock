@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cf4d1f2e23b0c6076f914c18c711a5c",
+    "content-hash": "9f608969e7f46cbbac5bf0481089c246",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3355,16 +3355,16 @@
         },
         {
             "name": "samchentw/permission",
-            "version": "2.1.1",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samchentw/permission.git",
-                "reference": "917aec23bee730ce417a15220c4322361afdd10e"
+                "reference": "71d45a5fbc6497855297a93ca23bf7d916e69efd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samchentw/permission/zipball/917aec23bee730ce417a15220c4322361afdd10e",
-                "reference": "917aec23bee730ce417a15220c4322361afdd10e",
+                "url": "https://api.github.com/repos/samchentw/permission/zipball/71d45a5fbc6497855297a93ca23bf7d916e69efd",
+                "reference": "71d45a5fbc6497855297a93ca23bf7d916e69efd",
                 "shasum": ""
             },
             "require": {
@@ -3388,9 +3388,9 @@
             ],
             "support": {
                 "issues": "https://github.com/samchentw/permission/issues",
-                "source": "https://github.com/samchentw/permission/tree/2.1.1"
+                "source": "https://github.com/samchentw/permission/tree/2.3.0"
             },
-            "time": "2021-09-08T09:41:28+00:00"
+            "time": "2021-09-29T08:15:15+00:00"
         },
         {
             "name": "samchentw/settings",

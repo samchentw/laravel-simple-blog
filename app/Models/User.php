@@ -60,8 +60,6 @@ class User extends Authenticatable //implements MustVerifyEmail
     use TwoFactorAuthenticatable;
     use HasRoles;
 
-    protected $with = ['roles'];
-
     /**
      * The attributes that are mass assignable.
      *
