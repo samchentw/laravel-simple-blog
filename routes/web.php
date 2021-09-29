@@ -15,9 +15,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+
 
 require __DIR__ . '/web/blog.php';
 require __DIR__ . '/web/admin.php';

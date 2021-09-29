@@ -30,6 +30,10 @@ Route::middleware(['auth:sanctum', 'verified', 'can:Identity.Admin'])->name('adm
   //     Route::get('/todo', [Admin\ExampleController::class, "todo"])->name('todo');
   // });
 
+  Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+  })->name('dashboard');
+
   Route::get('/', function () {
     return redirect('/admin/dashboard');
   });
