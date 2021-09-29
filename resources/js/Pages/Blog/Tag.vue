@@ -32,17 +32,27 @@
           </tr>
         </table>
       </div>
+
+      <div class="text-center">
+        <CommonPagination
+          :pageCount="pageData.last_page"
+          :currentPath="pageData.current_page"
+          urlPath="/admin/blog/tag"
+        />
+      </div>
     </div>
   </AppLayout>
 </template>
 <script>
 import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "@/Layouts/AppLayout";
+import CommonPagination from "@/Components/Pagination/CommonPagination";
 
 export default {
   props: ["pageData"],
   components: {
     AppLayout,
+    CommonPagination,
   },
   data() {
     return {};

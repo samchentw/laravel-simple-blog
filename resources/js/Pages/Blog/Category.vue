@@ -1,15 +1,15 @@
 <template>
-   <AppLayout title="Category">
+  <AppLayout title="Category">
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">Category</h2>
     </template>
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
       <div class="container mb-6 pt-5 px-4 mx-auto">
-         <!-- todo -->
+        <!-- todo -->
       </div>
 
       <div class="container mb-6 px-4 mx-auto">
-         <table>
+        <table>
           <tr>
             <th>名稱</th>
             <th>建立時間</th>
@@ -35,24 +35,32 @@
         </table>
       </div>
 
-     
+      <div class="text-center">
+        <CommonPagination
+          :pageCount="pageData.last_page"
+          :currentPath="pageData.current_page"
+          urlPath="/admin/blog/category"
+        />
+      </div>
     </div>
   </AppLayout>
 </template>
 <script>
 import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "@/Layouts/AppLayout";
+import CommonPagination from "@/Components/Pagination/CommonPagination";
 
 export default {
   props: ["pageData"],
   components: {
-    AppLayout
+    AppLayout,
+    CommonPagination,
   },
   data() {
     return {};
   },
   created: function () {},
-   computed: {
+  computed: {
     datas() {
       return this.pageData.data.map((b) => {
         b.created_at = dayjs(new Date(b.created_at)).format("YYYY-MM-DD "); //HH:mm:ss
