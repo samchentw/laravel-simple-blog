@@ -17,8 +17,9 @@
                     <span>信箱驗證</span>
 
                     @if (Auth::user()->email_verified_at == null)
-                        <span class="ml-auto"><span
-                                class="bg-red-500 py-1 px-2 rounded text-white text-sm">未驗證</span></span>
+                        <span class="ml-auto"><span class="bg-red-500 py-1 px-2 rounded text-white text-sm">
+                                <a href="/verify">未驗證</a>
+                            </span></span>
                     @else
                         <span class="ml-auto"><span
                                 class="bg-green-500 py-1 px-2 rounded text-white text-sm">已驗證</span></span>
@@ -73,7 +74,7 @@
                     </svg>
                     <span>個人文章</span>
                 </a>
-                <a
+                <a href="/member/reply" x-bind:class="{'bg-gray-400':currentUrl=='member/reply'}"
                     class="w-full bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                     <svg class="fill-current w-4 h-4 mr-2" viewBox="0 0 20 20">
                         <path

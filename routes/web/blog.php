@@ -37,6 +37,7 @@ Route::name('blog.')->group(function () {
             Route::get('/index', [Blog\MemberController::class, 'index'])->name('index');
             Route::get('/change-password', [Blog\MemberController::class, 'changePassword'])->name('changePassword');
             Route::get('/post-list', [Blog\MemberController::class, 'postList'])->name('postList');
+            Route::get('/reply', [Blog\MemberController::class, 'reply'])->name('reply');
         });
     });
 });

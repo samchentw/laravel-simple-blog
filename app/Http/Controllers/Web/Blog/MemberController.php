@@ -43,4 +43,10 @@ class MemberController extends Controller
         $posts = $postQuery->where('user_id',$request->user()->id)->get();
         return view('blog.pages.member.post_list',compact('posts'));
     }
+
+    public function reply(Request $request)
+    {
+        return view('blog.pages.member.reply');
+    }
+
 }

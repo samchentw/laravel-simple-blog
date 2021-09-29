@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1e068f7f582535535ddff4032a37718",
+    "content-hash": "5cf4d1f2e23b0c6076f914c18c711a5c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3394,16 +3394,16 @@
         },
         {
             "name": "samchentw/settings",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samchentw/settings.git",
-                "reference": "216ad63c948b6b3a4cc63b96128a902a1a7710cf"
+                "reference": "8f570c62e06d2522cdc4feaa4372339317520a38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samchentw/settings/zipball/216ad63c948b6b3a4cc63b96128a902a1a7710cf",
-                "reference": "216ad63c948b6b3a4cc63b96128a902a1a7710cf",
+                "url": "https://api.github.com/repos/samchentw/settings/zipball/8f570c62e06d2522cdc4feaa4372339317520a38",
+                "reference": "8f570c62e06d2522cdc4feaa4372339317520a38",
                 "shasum": ""
             },
             "require": {
@@ -3427,9 +3427,9 @@
             ],
             "support": {
                 "issues": "https://github.com/samchentw/settings/issues",
-                "source": "https://github.com/samchentw/settings/tree/2.2.0"
+                "source": "https://github.com/samchentw/settings/tree/2.3.0"
             },
-            "time": "2021-09-09T07:31:33+00:00"
+            "time": "2021-09-28T03:18:31+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

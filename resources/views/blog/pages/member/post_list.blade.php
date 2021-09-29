@@ -80,6 +80,7 @@
                 })
             },
             loadPost() {
+                //todo load post api，讓刪除不會重整頁面
                 // axios.get('/api/')
             },
             init() {
