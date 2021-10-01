@@ -6,6 +6,7 @@
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
       <div class="container mb-6 pt-5 px-4 mx-auto">
         <!-- todo -->
+        <CategoryModal width="short" />
       </div>
 
       <div class="container mb-6 px-4 mx-auto">
@@ -49,12 +50,14 @@
 import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "@/Layouts/AppLayout";
 import CommonPagination from "@/Components/Pagination/CommonPagination";
+import CategoryModal from "@/Components/Modals/CategoryModal";
 
 export default {
   props: ["pageData"],
   components: {
     AppLayout,
     CommonPagination,
+    CategoryModal,
   },
   data() {
     return {};

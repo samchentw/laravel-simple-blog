@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f608969e7f46cbbac5bf0481089c246",
+    "content-hash": "a0d8a8ec3a652c59df56f0dc44aeac07",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -600,6 +600,60 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
+        },
+        {
+            "name": "ezyang/htmlpurifier",
+            "version": "v4.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ezyang/htmlpurifier.git",
+                "reference": "08e27c97e4c6ed02f37c5b2b20488046c8d90d75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/08e27c97e4c6ed02f37c5b2b20488046c8d90d75",
+                "reference": "08e27c97e4c6ed02f37c5b2b20488046c8d90d75",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "simpletest/simpletest": "dev-master#72de02a7b80c6bb8864ef9bf66d41d2f58f826bd"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HTMLPurifier": "library/"
+                },
+                "files": [
+                    "library/HTMLPurifier.composer.php"
+                ],
+                "exclude-from-classmap": [
+                    "/library/HTMLPurifier/Language/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Edward Z. Yang",
+                    "email": "admin@htmlpurifier.org",
+                    "homepage": "http://ezyang.com"
+                }
+            ],
+            "description": "Standards compliant HTML filter written in PHP",
+            "homepage": "http://htmlpurifier.org/",
+            "keywords": [
+                "html"
+            ],
+            "support": {
+                "issues": "https://github.com/ezyang/htmlpurifier/issues",
+                "source": "https://github.com/ezyang/htmlpurifier/tree/master"
+            },
+            "time": "2020-06-29T00:56:53+00:00"
         },
         {
             "name": "fruitcake/laravel-cors",
@@ -3394,19 +3448,20 @@
         },
         {
             "name": "samchentw/settings",
-            "version": "2.3.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samchentw/settings.git",
-                "reference": "8f570c62e06d2522cdc4feaa4372339317520a38"
+                "reference": "b583e048e80c5d0ad4a1e343d4bf8dcabe871366"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samchentw/settings/zipball/8f570c62e06d2522cdc4feaa4372339317520a38",
-                "reference": "8f570c62e06d2522cdc4feaa4372339317520a38",
+                "url": "https://api.github.com/repos/samchentw/settings/zipball/b583e048e80c5d0ad4a1e343d4bf8dcabe871366",
+                "reference": "b583e048e80c5d0ad4a1e343d4bf8dcabe871366",
                 "shasum": ""
             },
             "require": {
+                "ezyang/htmlpurifier": "^4.13",
                 "php": "^7.3|^8.0"
             },
             "type": "library",
@@ -3427,9 +3482,9 @@
             ],
             "support": {
                 "issues": "https://github.com/samchentw/settings/issues",
-                "source": "https://github.com/samchentw/settings/tree/2.3.0"
+                "source": "https://github.com/samchentw/settings/tree/2.4.1"
             },
-            "time": "2021-09-28T03:18:31+00:00"
+            "time": "2021-09-30T03:20:23+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

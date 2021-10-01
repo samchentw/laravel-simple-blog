@@ -1,18 +1,17 @@
 <template>
-  <div>
+  <span>
     <button
-      class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+      class="bg-blue-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
       type="button"
       v-on:click="openModal()"
     >
-      新增
+      <i class="fas fa-plus"></i>新增  
     </button>
     <div
       v-if="showModal"
       class="overflow-x-hidden text-left overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center flex"
     >
-      <!-- relative w-full my-6 mx-auto max-w-6xl -->
-      <div class="relative w-auto my-6 mx-auto max-w-sm">
+      <div :class="dict[width]">
         <!--content-->
         <div
           class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
@@ -38,7 +37,25 @@
           </div>
           <!--body-->
           <div class="relative p-6 flex-auto">
-            <!-- 內容在這 -->
+            <form class="w-ful">
+              <div class="flex flex-wrap -mx-3 mb-6">
+                <!-- 內容在這 -->
+                <div class="w-full">
+                  <label class="block tracking-wide text-base font-bold mb-2">
+                    名稱
+                  </label>
+
+                  <input
+                    class="appearance-none block w-full rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                    id="grid-first-name"
+                    type="text"
+                    placeholder="名稱"
+                    v-model="form.display_name"
+                  />
+                  <!-- <p class="text-red-500 text-base italic">Please fill out this field.</p> -->
+                </div>
+              </div>
+            </form>
           </div>
           <!--footer-->
           <div
@@ -47,8 +64,19 @@
             <button
               class="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button"
+              v-on:click="create()"
+              v-if="!id"
             >
               建立
+            </button>
+
+             <button
+              class="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              type="button"
+              v-on:click="update()"
+              v-if="id"
+            >
+              修改
             </button>
 
             <button
@@ -63,20 +91,32 @@
       </div>
     </div>
     <div v-if="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
-  </div>
+  </span>
 </template>
 
 <script>
 export default {
   props: {
     id: {},
+    width: {
+      default: "short",
+      validator: function (value) {
+        return ["short", "medium", "long"].indexOf(value) !== -1;
+      },
+    },
   },
   data() {
     return {
       showModal: false,
       form: {},
+      dict: {
+        short: "relative w-auto my-6 mx-auto max-w-sm",
+        medium: "relative w-full my-6 mx-auto max-w-3xl",
+        long: "relative w-full my-6 mx-auto max-w-6xl",
+      },
     };
   },
+  created() {},
   components: {},
   methods: {
     openModal() {
@@ -85,6 +125,12 @@ export default {
     closeModal() {
       this.showModal = false;
     },
+    create(){
+      
+    },
+    update(){
+
+    }
   },
 };
 </script>

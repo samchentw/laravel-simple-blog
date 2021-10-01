@@ -15,7 +15,7 @@
         "laravel/tinker": "^2.5",
         "samchentw/common": "^2.3",
         "samchentw/permission": "^2.3",
-        "samchentw/settings": "^2.3",
+        "samchentw/settings": "^2.4",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
