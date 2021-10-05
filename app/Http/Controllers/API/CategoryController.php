@@ -31,14 +31,17 @@ class CategoryController extends Controller
      * @group CategoryController(類別)
      * category2.新增類別
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @bodyParam  display_name string required 
+     * @bodyParam  enable boolean  
+     * @bodyParam  sort int  
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'display_name' => ['string', 'required'],
-        // ]);
+        $request->validate([
+            'display_name' => ['string', 'required'],
+            'enable' => ['boolean'],
+            'sort' => ['integer']
+        ]);
 
         $fillable = $this->categoryRepository->getFillable();
         $this->categoryRepository->create(
@@ -62,15 +65,17 @@ class CategoryController extends Controller
      * @group CategoryController(類別)
      * category4.修改類別
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @bodyParam  display_name string required 
+     * @bodyParam  enable boolean  
+     * @bodyParam  sort int  
      */
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'display_name' => ['string', 'required'],
-        // ]);
+        $request->validate([
+            'display_name' => ['string', 'required'],
+            'enable' => ['boolean'],
+            'sort' => ['integer']
+        ]);
 
         $fillable = $this->categoryRepository->getFillable();
         $this->categoryRepository->update(

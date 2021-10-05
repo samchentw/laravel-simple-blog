@@ -126,7 +126,9 @@ export default {
       this.showModal = false;
     },
     create(){
-      
+      // axios.post('/api/category',{}).then(x=>{
+
+      // })
     },
     update(){
 
