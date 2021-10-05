@@ -80,7 +80,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+    // 'locale' => 'en',
+    'locale' => 'zh',
 
     /*
     |--------------------------------------------------------------------------
@@ -178,18 +179,9 @@ return [
         App\Providers\JetstreamServiceProvider::class,
 
 
-        /**
-         * 工作室套件
-         * @author Sam
-         */
-        // 基本
-        Samchentw\Common\Providers\CommonProvider::class,
-        // // setting套件
-        Samchentw\Settings\Providers\SettingProvider::class,
-        Samchentw\Settings\Providers\SettingEventServiceProvider::class,
-        // // 角色、權限套件  
-        Samchentw\Permission\Providers\PermissionProvider::class,
-        Samchentw\Permission\Providers\PermissionAuthServiceProvider::class
+        Samchentw\Common\CommonServiceProvider::class, 
+        Samchentw\Settings\SettingServiceProvider::class, 
+        Samchentw\Permission\PermissionServiceProvider::class,
 
     ],
 

@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,22 @@ use Illuminate\Support\Facades\Route;
  * 建立api文檔指令： php artisan scribe:generate
  */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:sanctum')->group(function () {
+
+    Route::post('/post', [API\PostController::class, 'store']);
+    Route::put('/post/{id}', [API\PostController::class, 'update']);
+    Route::delete('/post/{id}', [API\PostController::class, 'delete']);
+
+    // 類別管理
+    Route::resource('category', API\CategoryController::class);
+
+    //使用者 Api
+    Route::prefix('user')->name('user.')->group(function () {
+        // 取得使用者
+        Route::get('{id}', [API\UserController::class, 'get'])->middleware(['can:Page.User']);
+        // 新增使用者
+        Route::post('', [API\UserController::class, 'store'])->middleware(['can:Page.User.Create']);
+        // 修改使用者
+        Route::put('{id}', [API\UserController::class, 'update'])->middleware(['can:Page.User.Update']);
+    });
+});

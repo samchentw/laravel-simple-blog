@@ -18,12 +18,27 @@ return [
         "pages" => [
             [
                 'label' => '角色管理',
-                'key' => 'Page.Permission',
+                'key' => 'Page.Role',
                 'permissions' => ['Create', 'Update', 'Delete']
             ],
             [
                 'label' => '使用者管理',
                 'key' => 'Page.User',
+                'permissions' => ['Create', 'Update', 'Delete']
+            ],
+            [
+                'label' => '類別管理',
+                'key' => 'Page.Category',
+                'permissions' => ['Create', 'Update', 'Delete']
+            ],
+            [
+                'label' => '標籤管理',
+                'key' => 'Page.Tag',
+                'permissions' => ['Create', 'Update', 'Delete']
+            ],
+            [
+                'label' => '文章管理',
+                'key' => 'Page.Post',
                 'permissions' => ['Create', 'Update', 'Delete']
             ]
         ],

@@ -7,7 +7,7 @@
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-          <welcome />
+          todo...
         </div>
       </div>
     </div>
@@ -16,18 +16,11 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import Welcome from "@/Jetstream/Welcome.vue";
 
 export default {
   components: {
     AppLayout,
-    Welcome,
   },
-  created() {
-    // axios.get('/api/role').then(x=>{
-    //     console.log(x)
-    // })
-    //    console.log( dayjs('2018-08-08').format('YYYY-MM-DD'))
-  },
+  created() { },
 };
 </script>

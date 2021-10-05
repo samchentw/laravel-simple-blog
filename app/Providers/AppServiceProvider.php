@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //開發時避免是用lazy load
         Model::preventLazyLoading(!app()->isProduction());
     }
 }

@@ -21,7 +21,6 @@
     class="overflow-x-hidden text-left overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center flex"
   >
     <BasicLoading :loading="loading"  label="更新中…" />
-    <!-- relative w-full my-6 mx-auto max-w-6xl -->
     <div class="relative w-full my-6 mx-auto max-w-6xl" v-if="!loading">
       <!--content-->
       <div

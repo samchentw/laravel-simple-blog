@@ -22,6 +22,7 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 /public/js/app.js
+/public/js/app.js.LICENSE.txt
 /public/css/app.css
 .scribe
 /public/docs/

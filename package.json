@@ -32,6 +32,6 @@
         "dayjs": "^1.10.6",
         "litepie-datepicker": "^1.0.14",
         "vue-sweetalert2": "^5.0.2",
-        "vuex": "^3.6.2"
+        "vuex": "^4.0.0-alpha.1"
     }
 }
