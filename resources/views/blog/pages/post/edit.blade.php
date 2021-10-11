@@ -30,8 +30,20 @@
 
                     <div class="w-full md:w-w-full px-3 mt-3 mb-6 md:mb-0">
                         <label class="text-gray-700 dark:text-gray-200" for="emailAddress">標籤</label>
-                        <input id="category" type="text"
-                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+
+                        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline" x-on:click="addTag()">加入</a>
+                        <br><br>
+                        <template x-if="form.tags.length == 0">
+                            <div class="dark:text-gray-400 ml-3">目前尚未選擇</div>
+                        </template>
+                        <template x-for="(tag) in form.tags">
+                            <a style="line-height:2.25rem;"
+                                class=" ml-3 mb-3 px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-200 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500"
+                                x-text="tag" x-on:click="removeTag(tag)"></a>
+                        </template>
+
+                        {{-- <input id="category" type="text"
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"> --}}
                     </div>
 
                     <div class="w-full md:w-w-full px-3 mt-3 mb-6 md:mb-0">
@@ -67,8 +79,10 @@
             form: {
                 category_id: 0,
                 title: '',
-                body: ''
+                body: '',
+                tags: []
             },
+            tags: @json($tags),
             options: [],
             create() {
                 this.form.body = editor.getData();
@@ -88,8 +102,45 @@
                     errorForApi(err);
                 })
             },
+            removeTag(tagName){
+                confirmAlert('系統訊息','確認要移除嗎？').then(x=>{
+                    if(x.isConfirmed)  this.form.tags = this.form.tags.filter(x=> x!=tagName);
+                })
+               
+            },
+            addTag() {
+                let options = this.tags.reduce((a, v) => ({
+                    ...a,
+                    [v.name]: v.name
+                }), {})
+
+                Swal.fire({
+                    title: '請選擇標籤',
+                    input: 'select',
+                    inputOptions: {
+                        options
+                    },
+                    inputPlaceholder: '標籤',
+                    showCancelButton: true,
+                    inputValidator: (value) => {
+                        return new Promise((resolve) => {
+                            if (value === '') {
+                                resolve('請選擇籤！');
+                            } else if (this.form.tags.includes(value)) {
+                                resolve(value + ' 已重覆！');
+                            } else {
+                                resolve()
+                            }
+                        })
+                    }
+                }).then(x => {
+                    if (x.isConfirmed) {
+                        this.form.tags.push(x.value);
+                    }
+                })
+            },
             init() {
-                this.form = @json($post ?? ['body' => '']);
+                this.form = @json($post ?? ['body' => '', 'tags' => []]);
                 let categories = @json($categories);
                 this.options = categories.map(m => {
                     return {

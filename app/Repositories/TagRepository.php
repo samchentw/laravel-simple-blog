@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Models\Tag;
@@ -15,4 +16,9 @@ class TagRepository extends Repository
         return Tag::class;
     }
 
+
+    public function getTagsByName(array $names)
+    {
+        return Tag::whereIn('name', $names)->get();
+    }
 }

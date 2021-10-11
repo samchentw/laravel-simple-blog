@@ -8,15 +8,18 @@ use App\Repositories\PostRepository;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Validation\Rule;
+use App\Repositories\TagRepository;
 
 class PostController extends Controller
 {
-    private $postRepository;
+    private $postRepository, $tagRepository;
 
     public function __construct(
-        PostRepository $PostRepository
+        PostRepository $PostRepository,
+        TagRepository $TagRepository
     ) {
         $this->postRepository = $PostRepository;
+        $this->tagRepository = $TagRepository;
     }
 
     /**
@@ -35,14 +38,19 @@ class PostController extends Controller
             'category_id' => [
                 'numeric', 'required',
                 Rule::exists('categories', 'id')
-            ]
+            ],
+            'tags' => ['array','nullable']
         ]);
 
         $fillable = $this->postRepository->getFillable();
         $post = $this->postRepository->getModel()->fill($request->only($fillable));
         $post->user()->associate($request->user());
         $post->category()->associate($request->category_id);
-        $post->save();
+        $tags = $this->tagRepository->getTagsByName($request->tags);
+        return tap($post, function (Post $post) use ($tags) {
+            $post->save();
+            $post->tags()->attach($tags);
+        });
     }
 
 
@@ -62,15 +70,18 @@ class PostController extends Controller
             'category_id' => [
                 'numeric', 'required',
                 Rule::exists('categories', 'id')
-            ]
+            ],
+            'tags' => ['array','nullable']
         ]);
 
         $fillable = $this->postRepository->getFillable();
         $post = $this->postRepository->getById($id);
         $this->authorize('update', $post);
-
         $post->category()->associate($request->category_id);
         $post->update($request->only($fillable));
+        $tags = $this->tagRepository->getTagsByName($request->tags);
+        $post->tags()->sync($tags);
+       
     }
 
 

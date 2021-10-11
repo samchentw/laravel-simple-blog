@@ -39,6 +39,7 @@ use App\Models\Tag;
 class Post extends Model
 {
     use HasFactory;
+   
 
     protected $fillable = [
         'title', 'body', 'slug',
@@ -47,7 +48,7 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->hasMany(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
 
     public function user()
