@@ -48,7 +48,7 @@
 
                     <div class="w-full md:w-w-full px-3 mt-3 mb-6 md:mb-0">
                         <label class="text-gray-700 dark:text-gray-200" for="emailAddress">內容</label>
-                        <div id="editor">
+                        <div id="editor" >
                             <span x-html="form.body"></span>
                         </div>
                     </div>
@@ -88,7 +88,6 @@
                 this.form.body = editor.getData();
                 axios.post('/api/post', this.form).then(x => {
                     successAlert('建立成功！')
-                    location.href = "/"
                 }).catch(err => {
                     errorForApi(err);
                 })
@@ -96,8 +95,7 @@
             update() {
                 this.form.body = editor.getData();
                 axios.put('/api/post/' + this.form.id, this.form).then(x => {
-                    successAlert('更新成功！')
-                    location.href = "/"
+                    successAlert('更新成功！');
                 }).catch(err => {
                     errorForApi(err);
                 })

@@ -8,4 +8,14 @@ return [
      * desc：由大至小排序
      */
     "model_sort" => env('MODEL_SORT','asc'),
+
+    "router-list-methods" => [
+        "GET",
+        // "HEAD",
+        // "POST",
+        // "PUT",
+        // "HEAD",
+        // "PATCH",
+        // "DELETE"
+    ],
 ];

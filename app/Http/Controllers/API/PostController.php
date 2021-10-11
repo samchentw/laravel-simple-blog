@@ -24,6 +24,15 @@ class PostController extends Controller
 
     /**
      * @group PostController(文章)
+     * post4.取得文章
+     */
+    public function show($id)
+    {
+        return $this->postRepository->getById($id);
+    }
+
+    /**
+     * @group PostController(文章)
      * post1.建立文章
      * 
      * @bodyParam  title string required 標題

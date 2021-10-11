@@ -32,7 +32,16 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        return view('blog.pages.post.index');
+        $tags = $this->tagRepository->getAll();
+        $postPage = $this->postRepository->getModel()->with(['tags', 'category', 'user'])->paginate();
+
+        return view(
+            'blog.pages.post.index',
+            [
+                'tags' => $tags,
+                'postPage' => $postPage
+            ]
+        );
     }
 
     public function edit(Request $request, $id = 0)
@@ -41,9 +50,6 @@ class PostController extends Controller
         $tags = $this->tagRepository->getAll();
         if ($id != 0) {
             $post =  $this->postRepository->getModel()->with(['tags'])->where('id', $id)->first();
-
-            
-
             if ($request->user()->id != $post->user_id) {
                 abort(404);
             } else {
