@@ -52,7 +52,7 @@
         }
 
         function successAlert(title) {
-            Swal.fire({
+            return Swal.fire({
                 icon: 'success',
                 title: title,
                 showConfirmButton: true,
@@ -61,7 +61,7 @@
         }
 
         function errorHtmlAlert(title, html) {
-            Swal.fire({
+            return Swal.fire({
                 html: html,
                 title: title,
                 // text: text,

@@ -48,7 +48,7 @@
 
                     <div class="w-full md:w-w-full px-3 mt-3 mb-6 md:mb-0">
                         <label class="text-gray-700 dark:text-gray-200" for="emailAddress">內容</label>
-                        <div id="editor" >
+                        <div id="editor">
                             <span x-html="form.body"></span>
                         </div>
                     </div>
@@ -87,7 +87,10 @@
             create() {
                 this.form.body = editor.getData();
                 axios.post('/api/post', this.form).then(x => {
-                    successAlert('建立成功！')
+                    successAlert('建立成功！').then(()=>{
+                        location.href = "/post/edit/" + x.data.id
+                    });
+                    
                 }).catch(err => {
                     errorForApi(err);
                 })
@@ -100,11 +103,11 @@
                     errorForApi(err);
                 })
             },
-            removeTag(tagName){
-                confirmAlert('系統訊息','確認要移除嗎？').then(x=>{
-                    if(x.isConfirmed)  this.form.tags = this.form.tags.filter(x=> x!=tagName);
+            removeTag(tagName) {
+                confirmAlert('系統訊息', '確認要移除嗎？').then(x => {
+                    if (x.isConfirmed) this.form.tags = this.form.tags.filter(x => x != tagName);
                 })
-               
+
             },
             addTag() {
                 let options = this.tags.reduce((a, v) => ({
