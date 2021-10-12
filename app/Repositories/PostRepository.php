@@ -15,4 +15,10 @@ class PostRepository extends Repository
     {
         return Post::class;
     }
+
+    public function getPostByIdWithSlug($id, $slug)
+    {
+        return Post::with(['tags', 'category', 'user'])
+            ->whereId($id)->whereSlug($slug)->first();
+    }
 }

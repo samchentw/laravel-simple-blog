@@ -29,7 +29,7 @@
 
 
                     @foreach ($postPage as $data)
-                        <div class="px-8 py-4 mx-auto rounded-lg shadow-md dark:bg-gray-800 mt-3">
+                        <div class="px-8 py-4 mx-auto rounded-lg shadow-md bg-gray-800 mt-3">
                             <div class="flex items-center justify-between">
                                 <span
                                     class="text-sm font-light text-gray-600 dark:text-gray-400">{{ $data->created_at }}</span>

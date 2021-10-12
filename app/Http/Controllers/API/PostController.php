@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Validation\Rule;
 use App\Repositories\TagRepository;
+use App\Helpers\PostHelper;
 
 class PostController extends Controller
 {
@@ -48,11 +49,13 @@ class PostController extends Controller
                 'numeric', 'required',
                 Rule::exists('categories', 'id')
             ],
-            'tags' => ['array','nullable']
+            'tags' => ['array', 'nullable']
         ]);
 
         $fillable = $this->postRepository->getFillable();
         $post = $this->postRepository->getModel()->fill($request->only($fillable));
+
+        $post->slug = PostHelper::makeSlug($post->title);
         $post->user()->associate($request->user());
         $post->category()->associate($request->category_id);
         $tags = $this->tagRepository->getTagsByName($request->tags);
@@ -80,17 +83,19 @@ class PostController extends Controller
                 'numeric', 'required',
                 Rule::exists('categories', 'id')
             ],
-            'tags' => ['array','nullable']
+            'tags' => ['array', 'nullable']
         ]);
 
         $fillable = $this->postRepository->getFillable();
         $post = $this->postRepository->getById($id);
+        $request->merge([
+            "slug" => PostHelper::makeSlug($request->input("title"))
+        ]); 
         $this->authorize('update', $post);
         $post->category()->associate($request->category_id);
         $post->update($request->only($fillable));
         $tags = $this->tagRepository->getTagsByName($request->tags);
         $post->tags()->sync($tags);
-       
     }
 
 

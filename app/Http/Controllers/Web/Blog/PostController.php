@@ -24,9 +24,11 @@ class PostController extends Controller
         $this->tagRepository = $TagRepository;
     }
 
-    // todo
     public function show($id, $slug)
     {
+        $post = $this->postRepository->getPostByIdWithSlug($id, $slug);
+        if ($post == null) abort(404);
+        return view('blog.pages.post.show', ['post' => $post]);
     }
 
 

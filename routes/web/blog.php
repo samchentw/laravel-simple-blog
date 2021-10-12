@@ -15,13 +15,14 @@ Route::name('blog.')->group(function () {
     Route::middleware(['auth:sanctum'])->group(function () {
         Route::get('/verify', [Blog\BlogController::class, 'verify'])->name('verify');
     });
-    
+
 
 
     // post
     Route::prefix('post')->name('post.')->group(function () {
 
         Route::get('/index', [Blog\PostController::class, 'index']);
+        Route::get('/show/{id}/{slug}', [Blog\PostController::class, 'show']);
 
         Route::middleware(['auth:sanctum', 'verified:blog.verify'])->group(function () {
             Route::get('/edit/{id?}', [Blog\PostController::class, 'edit']);
