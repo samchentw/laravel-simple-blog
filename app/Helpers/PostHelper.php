@@ -16,4 +16,10 @@ class PostHelper
          $title = strtolower($title);
          return $title;
     }
+
+
+    public static function makeExcerpt(string $body, int $length = 150)
+    {
+        return Str::limit(strip_tags($body), $length);
+    }
 }

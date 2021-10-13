@@ -1,6 +1,6 @@
 @extends('blog.index')
 
-
+<link rel="stylesheet" href="{{ asset('css/ck-content.css') }}" type="text/css">
 @section('content')
     <div x-data="pageData()"
         class="bg-gray-200 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -42,15 +42,15 @@
                                 @endforeach
                             </div>
                             <div class="mt-2">
-                                <a href="#"
+                                <a href="/post/show/{{$data->id}}/{{$data->slug}}"
                                     class="text-2xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{{ $data->title }}</a>
-                                <p class="mt-2 ck-content ">
-                                    {!! $data->body !!}
+                                <p class="text-gray-600 mt-2 dark:text-white">
+                                    {!! $data->excerpt !!}
                                 </p>
                             </div>
 
                             <div class="flex items-center justify-between mt-4">
-                                <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Read more</a>
+                                <a href="/post/show/{{$data->id}}/{{$data->slug}}" class="text-blue-600 dark:text-blue-400 hover:underline">Read more</a>
 
                                 <div class="flex items-center">
                                     <img class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block"
@@ -87,14 +87,16 @@
 
         {{-- end --}}
     </div>
+
+    <script src="{{ asset('js/prism.js') }}"></script>
 @endsection
 
 <script>
     function pageData() {
         return {
             init() {
-                let test = @json($postPage);
-                console.log(test)
+                // let test = @json($postPage);
+                // console.log(test)
             }
         }
     }
