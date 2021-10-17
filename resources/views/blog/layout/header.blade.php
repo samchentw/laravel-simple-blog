@@ -1,5 +1,3 @@
-
-
 <nav class="bg-white shadow dark:bg-gray-800" x-data="header()" x-cloak>
     <div class="container px-6 py-4 mx-auto max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="md:flex md:items-center md:justify-between">
@@ -35,10 +33,22 @@
                     <a href="/tag"
                         class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
                         標籤</a>
-                    <a href="/example"
+                    {{-- <a href="/example"
                         class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">
                         example
-                    </a>
+                    </a> --}}
+
+                    {{-- <a href="/member/index" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700"
+                        id="user-menu-item-0">個人資料</a>
+                    <a href="/post/edit" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700"
+                        id="user-menu-item-1">新增文章</a>
+
+                    <form style="margin: 0;" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700" method="POST" role="menuitem"
+                        tabindex="-1" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="w-full text-left" type="submit">登出</button>
+                    </form> --}}
+
                 </div>
 
                 @auth
@@ -53,7 +63,7 @@
                             </svg>
                         </button>
                         {{-- :class="!(mobileNar)?'block':'hidden'" --}}
-                        <div class="ml-3 relative"  > 
+                        <div class="ml-3 relative">
                             <div>
                                 <button type="button" x-on:click="onButtonClick()"
                                     class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
@@ -67,23 +77,25 @@
                                     </h3>
                                 </button>
                             </div>
-                            <div x-show="open"  x-on:click.away="open = false"
+                            <div x-show="open" x-on:click.away="open = false"
                                 x-transition:enter="transition ease-out duration-100"
                                 x-transition:enter-start="transform opacity-0 scale-95"
                                 x-transition:enter-end="transform opacity-100 scale-100"
                                 x-transition:leave="transition ease-in duration-75"
                                 x-transition:leave-start="transform opacity-100 scale-100"
                                 x-transition:leave-end="transform opacity-0 scale-95" x-ref="menu-items"
-                                class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                {{-- class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" --}}
+                                :class="!mobileNar?'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'
+                                :'origin-top-left absolute left-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'"
                                 role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
                                 <a href="/member/index" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
                                     tabindex="-1" id="user-menu-item-0">個人資料</a>
-                                <a href="/post/edit" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                    id="user-menu-item-1">新增文章</a>
+                                <a href="/post/edit" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                    tabindex="-1" id="user-menu-item-1">新增文章</a>
 
-                                <form style="margin: 0;" class="block px-4 py-2 text-sm text-gray-700"
-                                    method="POST" role="menuitem" tabindex="-1" action="{{ route('logout') }}">
+                                <form style="margin: 0;" class="block px-4 py-2 text-sm text-gray-700" method="POST"
+                                    role="menuitem" tabindex="-1" action="{{ route('logout') }}">
                                     @csrf
                                     <button class="w-full text-left" type="submit">登出</button>
                                 </form>

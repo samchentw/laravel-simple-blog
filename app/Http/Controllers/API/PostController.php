@@ -34,6 +34,15 @@ class PostController extends Controller
 
     /**
      * @group PostController(文章)
+     * post5.取得文章分頁
+     */
+    public function page(Request $request)
+    {
+        return $this->postRepository->getPostPage();
+    }
+
+    /**
+     * @group PostController(文章)
      * post1.建立文章
      * 
      * @bodyParam  title string required 標題
@@ -90,7 +99,7 @@ class PostController extends Controller
         $post = $this->postRepository->getById($id);
         $request->merge([
             "slug" => PostHelper::makeSlug($request->input("title"))
-        ]); 
+        ]);
         $this->authorize('update', $post);
         $post->category()->associate($request->category_id);
         $post->update($request->only($fillable));

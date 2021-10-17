@@ -1,10 +1,10 @@
 @extends('blog.index')
 
-
+<link rel="stylesheet" href="{{ asset('css/ck-content.css') }}" type="text/css">
 @section('content')
     <div x-data="pageData()"
         class="bg-gray-200 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div class="bg-gray-100">
+        <div class="bg-gray-200">
             <div class="container mx-auto my-5 p-5">
                 <div class="md:flex no-wrap md:-mx-2 ">
                     <!-- Left Side -->
@@ -13,16 +13,16 @@
                     <div class="w-full md:w-9/12 mx-2 h-auto">
                         <!-- Profile tab -->
                         <!-- About Section -->
-                        <div class="bg-white p-3 shadow-sm rounded-sm">
-                            <div class="w-full">
+                        <div class="p-3 shadow-sm rounded-sm">
+                            <div class="w-full bg-gray-600 dark:text-white">
                                 <template x-for="(post) in posts">
                                     <span>
                                         <div class="px-6 py-4">
-                                            <h4 class="mb-3 text-xl font-semibold tracking-tight text-gray-800">
+                                            <h4 class="mb-3 text-xl font-semibold tracking-tight">
                                                 <span x-text="post.title"></span>
                                             </h4>
                                             <p class="leading-normal text-gray-700">
-                                                <span class="ck-content" x-html="post.body"></span>
+                                                <span class="text-gray-600 mt-2 dark:text-white ck-content" x-html="post.excerpt"></span>
                                             </p>
                                             <div>
                                                 <a x-bind:href="'/post/edit/'+post.id">編輯</a>
@@ -56,10 +56,9 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-
+    <script src="{{ asset('js/prism.js') }}"></script>
 @endsection
 
 
@@ -84,8 +83,7 @@
                 // axios.get('/api/')
             },
             init() {
-                let posts = @json($posts);
-                this.posts = posts;
+                this.posts = @json($posts);
             }
         }
     }

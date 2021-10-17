@@ -23,6 +23,7 @@ use App\Http\Controllers\API;
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/post/{id}', [API\PostController::class, 'show']);
+    Route::get('/post/page', [API\PostController::class, 'page']);
     Route::post('/post', [API\PostController::class, 'store']);
     Route::put('/post/{id}', [API\PostController::class, 'update']);
     Route::delete('/post/{id}', [API\PostController::class, 'delete']);

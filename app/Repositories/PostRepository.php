@@ -21,4 +21,10 @@ class PostRepository extends Repository
         return Post::with(['tags', 'category', 'user'])
             ->whereId($id)->whereSlug($slug)->first();
     }
+
+    public function getPostPage()
+    {
+        return $this->getModel()->with(['tags', 'category', 'user'])
+            ->orderBy('created_at', 'desc')->paginate(5);
+    }
 }
