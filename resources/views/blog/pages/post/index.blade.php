@@ -10,6 +10,15 @@
             <div class=" px-5  mx-auto flex sm:flex-nowrap flex-wrap">
                 <div class="lg:w-2/3 md:w-1/2  rounded-lg overflow-hidden sm:mr-10 p-3  items-end justify-start">
                     {{-- post --}}
+                    @if (count($postPage) == 0)
+                        <div></div>
+                        <div class="bg-red-100 mt-5 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">系統公告</strong>
+                            <span class="block">目前無文章</span>
+
+                        </div>
+                    @endif
+
                     @foreach ($postPage as $data)
                         <div class="px-8 py-4 mx-auto rounded-lg shadow-md bg-gray-800 mt-3">
                             <div class="flex items-center justify-between">
