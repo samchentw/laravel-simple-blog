@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Post;
 use Samchentw\Common\Repositories\Base\Repository;
+use Illuminate\Database\Eloquent\Builder;
 
 class PostRepository extends Repository
 {
@@ -25,6 +26,15 @@ class PostRepository extends Repository
     public function getPostPage()
     {
         return $this->getModel()->with(['tags', 'category', 'user'])
+            ->orderBy('created_at', 'desc')->paginate(5);
+    }
+
+    public function getPostPageByTagId($tagId)
+    {
+        return $this->getModel()->with(['tags', 'category', 'user'])
+            ->whereHas('tags', function (Builder $query) use ($tagId) {
+                $query->where('tag_id', $tagId);
+            })
             ->orderBy('created_at', 'desc')->paginate(5);
     }
 }

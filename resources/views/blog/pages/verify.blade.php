@@ -47,7 +47,7 @@
                     <img class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block" src="/images/weiweiBear.png"
                         alt="avatar">
                     <a href="javascript:void(0)" class="font-bold text-gray-700 cursor-pointer dark:text-gray-200">
-                        Marmo Bear</a>
+                        Marmo</a>
                 </div>
             </div>
 

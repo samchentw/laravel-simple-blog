@@ -17,7 +17,7 @@ Route::name('blog.')->group(function () {
     });
 
 
-
+    Route::get('/tag/{id}', [Blog\BlogController::class, 'tagPost']);
     // post
     Route::prefix('post')->name('post.')->group(function () {
 

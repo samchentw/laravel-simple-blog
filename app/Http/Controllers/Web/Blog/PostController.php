@@ -34,7 +34,7 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        $tags = $this->tagRepository->getAll();
+        $tags = $this->tagRepository->getHasPost();
         $postPage = $this->postRepository->getPostPage();
         return view(
             'blog.pages.post.index',

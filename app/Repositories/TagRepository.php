@@ -21,4 +21,9 @@ class TagRepository extends Repository
     {
         return Tag::whereIn('name', $names)->get();
     }
+
+    public function getHasPost()
+    {
+        return $this->getModel()->has('posts', '!=', 0)->get();
+    }
 }

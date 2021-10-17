@@ -46,7 +46,7 @@
                     @endforeach
 
                     <div class=" mt-3">
-                        {{$postPage}}
+                        {{ $postPage }}
                     </div>
                     {{-- post end --}}
 
@@ -54,10 +54,10 @@
                 </div>
                 <div class="lg:w-1/3 md:w-1/2  flex flex-col md:ml-auto w-full md:py-8 mt-5 md:mt-0">
                     <div class="shadow p-4 dark:text-white dark:bg-gray-800">
-                        <h3>全部標籤</h3>
+                        <h3>熱門標籤</h3>
                         @foreach ($tags as $tag)
-                            <span
-                                class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-green-100 text-indigo-100 bg-green-600 rounded-full cursor-pointer">{{ $tag->name }}</span>
+                            <a href="/tag/{{ $tag->id }}"
+                                class="mt-1 inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-green-100 text-indigo-100 bg-green-600 rounded-full cursor-pointer">{{ $tag->name }}</a>
                         @endforeach
 
                         {{-- <span class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-indigo-100 bg-indigo-700 rounded">NEW</span> --}}
@@ -80,9 +80,9 @@
 <script>
     function pageData() {
         return {
-          
+
             init() {
-            
+
             }
         }
     }
