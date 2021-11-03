@@ -4,21 +4,8 @@
 @section('content')
     <div x-data="pageData()" x-cloak
         class="bg-gray-200 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        {{-- start --}}
-        {{-- <form style="margin: 0;" class="block px-4 py-2 text-sm text-gray-700" method="POST" role="menuitem" tabindex="-1"
-            action="{{ route('logout') }}">
-            @csrf
-            <button class="w-full text-left" type="submit">登出</button>
-        </form> --}}
-
-
-
 
         <div class="max-w-2xl px-8 py-4 mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
-            {{-- <div class="flex items-center justify-between">
-                <span class="text-sm font-light text-gray-600 dark:text-gray-400">Mar 10, 2019</span>
-                <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-200 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500">Design</a>
-            </div> --}}
 
             <div class="mt-2">
                 <div class="text-2xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200">
@@ -58,11 +45,7 @@
                     <span class="block">已發送電子郵件！</span>
                 </div>
             </template>
-
         </div>
-
-
-
         {{-- end --}}
     </div>
 @endsection

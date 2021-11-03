@@ -28,6 +28,7 @@
                             <div class="mt-2">
                                 @foreach ($data->tags as $tag)
                                     <a
+                                        href="/tag/{{$tag->id}}"
                                         class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-200 transform 
                                         bg-gray-600 rounded cursor-pointer hover:bg-gray-500">{{ $tag->name }}</a>
                                 @endforeach

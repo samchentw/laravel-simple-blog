@@ -3,8 +3,6 @@
         <!-- Profile Card -->
         <div class="bg-white p-3 border-t-4 border-green-400">
             <div class="image overflow-hidden">
-
-                {{-- {{Auth::user()}} --}}
                 <img class="h-auto w-full mx-auto" src=" {{ Auth::user()->profile_photo_url }}" alt="">
             </div>
             <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ Auth::user()->name }}</h1>
