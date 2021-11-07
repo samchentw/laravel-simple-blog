@@ -40,7 +40,10 @@ class MemberController extends Controller
     public function postList(Request $request)
     {
         $postQuery = $this->postRepository->getQuery();
-        $posts = $postQuery->where('user_id',$request->user()->id)->get();
+        $posts = $postQuery->where('user_id',$request->user()->id)->orderBy('created_at','desc')->get();
+        foreach($posts as $post){
+            $post->excerpt = $post->excerpt;
+        }
         return view('blog.pages.member.post_list',compact('posts'));
     }
 

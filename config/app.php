@@ -178,11 +178,6 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
-
-        Samchentw\Common\CommonServiceProvider::class, 
-        Samchentw\Settings\SettingServiceProvider::class, 
-        Samchentw\Permission\PermissionServiceProvider::class,
-
     ],
 
     /*

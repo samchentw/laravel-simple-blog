@@ -9,7 +9,8 @@
     <link rel="icon" href="/images/weiweiBear.png" type="image/x-icon" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" href="/css/ck-content.css" type="text/css">
+   
+    <link rel="stylesheet" href="/css/prism.css" type="text/css">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <style>
@@ -52,7 +53,7 @@
         }
 
         function successAlert(title) {
-            Swal.fire({
+            return Swal.fire({
                 icon: 'success',
                 title: title,
                 showConfirmButton: true,
@@ -61,7 +62,7 @@
         }
 
         function errorHtmlAlert(title, html) {
-            Swal.fire({
+            return Swal.fire({
                 html: html,
                 title: title,
                 // text: text,
@@ -98,7 +99,7 @@
         @yield('content')
     </div>
     @include('blog/layout/footer')
-
+  
     <script src="/js/axios.min.js"></script>
     <script src="/js/alpinejs.min.js"></script>
     <script src="/js/lodash.min.js"></script>

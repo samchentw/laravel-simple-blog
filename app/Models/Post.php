@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Helpers\PostHelper;
+
 
 /**
  * App\Models\Post
@@ -40,14 +42,25 @@ class Post extends Model
 {
     use HasFactory;
 
+
     protected $fillable = [
         'title', 'body', 'slug',
     ];
 
+    /**
+     * attribute
+     */
+    public function getExcerptAttribute()
+    {
+        return PostHelper::makeExcerpt($this->body);
+    }
 
+    /**
+     * relation
+     */
     public function tags()
     {
-        return $this->hasMany(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
 
     public function user()

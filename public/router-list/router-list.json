@@ -1,0 +1,284 @@
+[
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\AuthenticatedSessionController@create",
+        "url": "login",
+        "name": "login",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\PasswordResetLinkController@create",
+        "url": "forgot-password",
+        "name": "password.request",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\NewPasswordController@create",
+        "url": "reset-password\/{token}",
+        "name": "password.reset",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\RegisteredUserController@create",
+        "url": "register",
+        "name": "register",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\EmailVerificationPromptController@__invoke",
+        "url": "email\/verify",
+        "name": "verification.notice",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\VerifyEmailController@__invoke",
+        "url": "email\/verify\/{id}\/{hash}",
+        "name": "verification.verify",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\ConfirmablePasswordController@show",
+        "url": "user\/confirm-password",
+        "name": "password.confirm",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\ConfirmedPasswordStatusController@show",
+        "url": "user\/confirmed-password-status",
+        "name": "password.confirmation",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\TwoFactorAuthenticatedSessionController@create",
+        "url": "two-factor-challenge",
+        "name": "two-factor.login",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\TwoFactorQrCodeController@show",
+        "url": "user\/two-factor-qr-code",
+        "name": "two-factor.qr-code",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Fortify\\Http\\Controllers\\RecoveryCodeController@index",
+        "url": "user\/two-factor-recovery-codes",
+        "name": "two-factor.recovery-codes",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Jetstream\\Http\\Controllers\\Inertia\\UserProfileController@show",
+        "url": "user\/profile",
+        "name": "profile.show",
+        "method": "GET"
+    },
+    {
+        "controller": "Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show",
+        "url": "sanctum\/csrf-cookie",
+        "name": "generated::3D1plnTpr4ZLU3v2",
+        "method": "GET"
+    },
+    {
+        "controller": "Samchentw\\Common\\Http\\Controllers\\API\\CommandController@storageLink",
+        "url": "api\/command\/storage-link",
+        "name": "command.",
+        "method": "GET"
+    },
+    {
+        "controller": "Samchentw\\Common\\Http\\Controllers\\API\\CommandController@clearCache",
+        "url": "api\/command\/clear-cache",
+        "name": "command.generated::OOEGfhBoj71qqxgj",
+        "method": "GET"
+    },
+    {
+        "controller": "Samchentw\\Common\\Http\\Controllers\\API\\CommandController@generateKey",
+        "url": "api\/command\/generate-key",
+        "name": "command.generated::l1TMTeARz0HrweWv",
+        "method": "GET"
+    },
+    {
+        "controller": "Samchentw\\Common\\Http\\Controllers\\API\\CommandController@dbSeed",
+        "url": "api\/command\/db-seed",
+        "name": "command.generated::IQQWSLybNN3QaAXg",
+        "method": "GET"
+    },
+    {
+        "controller": "Samchentw\\Common\\Http\\Controllers\\API\\CommandController@migrate",
+        "url": "api\/command\/migrate",
+        "name": "command.generated::vkTYw8iSr3k1lcyq",
+        "method": "GET"
+    },
+    {
+        "controller": "Samchentw\\Permission\\Http\\Controllers\\API\\RoleController@getAllPermission",
+        "url": "api\/role\/get-all-permission",
+        "name": "role.",
+        "method": "GET"
+    },
+    {
+        "controller": "Samchentw\\Permission\\Http\\Controllers\\API\\RoleController@getAll",
+        "url": "api\/role",
+        "name": "role.getAll",
+        "method": "GET"
+    },
+    {
+        "controller": "Samchentw\\Permission\\Http\\Controllers\\API\\RoleController@get",
+        "url": "api\/role\/{id}",
+        "name": "role.get",
+        "method": "GET"
+    },
+    {
+        "controller": "Samchentw\\Settings\\Http\\Controllers\\API\\SettingController@getTinymceApiKey",
+        "url": "api\/setting\/tinymce-api-key",
+        "name": "setting.",
+        "method": "GET"
+    },
+    {
+        "controller": "Samchentw\\Settings\\Http\\Controllers\\API\\SettingController@getMailGroupSetting",
+        "url": "api\/setting\/system-mail-group",
+        "name": "setting.generated::6mrvhWRZAVIRjVsf",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\API\\CategoryController@index",
+        "url": "api\/category",
+        "name": "category.index",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\API\\CategoryController@create",
+        "url": "api\/category\/create",
+        "name": "category.create",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\API\\CategoryController@show",
+        "url": "api\/category\/{category}",
+        "name": "category.show",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\API\\CategoryController@edit",
+        "url": "api\/category\/{category}\/edit",
+        "name": "category.edit",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\API\\UserController@get",
+        "url": "api\/user\/{id}",
+        "name": "user.",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\BlogController@index",
+        "url": "\/",
+        "name": "blog.",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\BlogController@tag",
+        "url": "tag",
+        "name": "blog.generated::qFGIIa4jpsWISmC9",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\BlogController@example",
+        "url": "example",
+        "name": "blog.generated::vjkf1u6IZQbtQHnk",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\BlogController@verify",
+        "url": "verify",
+        "name": "blog.verify",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\PostController@index",
+        "url": "post\/index",
+        "name": "blog.post.",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\PostController@edit",
+        "url": "post\/edit\/{id?}",
+        "name": "blog.post.generated::rA33RGIjtDeSVcyS",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\MemberController@login",
+        "url": "member\/login",
+        "name": "blog.member.login",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\MemberController@register",
+        "url": "member\/register",
+        "name": "blog.member.register",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\MemberController@index",
+        "url": "member\/index",
+        "name": "blog.member.index",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\MemberController@changePassword",
+        "url": "member\/change-password",
+        "name": "blog.member.changePassword",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\MemberController@postList",
+        "url": "member\/post-list",
+        "name": "blog.member.postList",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Blog\\MemberController@reply",
+        "url": "member\/reply",
+        "name": "blog.member.reply",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Admin\\AdminController@roleSetting",
+        "url": "admin\/permission-management\/role-setting",
+        "name": "admin.permission-management.roleSetting",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Admin\\AdminController@userSetting",
+        "url": "admin\/permission-management\/user-setting",
+        "name": "admin.permission-management.userSetting",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Admin\\BlogController@post",
+        "url": "admin\/blog\/post",
+        "name": "admin.blog.post",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Admin\\BlogController@tag",
+        "url": "admin\/blog\/tag",
+        "name": "admin.blog.tag",
+        "method": "GET"
+    },
+    {
+        "controller": "App\\Http\\Controllers\\Web\\Admin\\BlogController@category",
+        "url": "admin\/blog\/category",
+        "name": "admin.blog.category",
+        "method": "GET"
+    },
+    {
+        "controller": "Closure",
+        "url": "admin\/dashboard",
+        "name": "admin.dashboard",
+        "method": "GET"
+    },
+    {
+        "controller": "Closure",
+        "url": "admin",
+        "name": "admin.",
+        "method": "GET"
+    }
+]

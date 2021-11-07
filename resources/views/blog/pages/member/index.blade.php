@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="bg-gray-200 px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div class="bg-gray-100">
+        <div class="bg-gray-200">
             <div class="container mx-auto my-5 p-5">
                 <div class="md:flex no-wrap md:-mx-2 ">
                     <!-- Left Side -->
@@ -49,6 +49,8 @@
                                         <div class="px-4 py-2 font-semibold">Permanant Address</div>
                                         <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
                                     </div> --}}
+
+
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Email.</div>
                                         <div class="px-4 py-2">
@@ -56,11 +58,14 @@
                                                 href="mailto:{{ Auth::user()->email }}">{{ Auth::user()->email }}</a>
                                         </div>
                                     </div>
-                                    {{-- <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Birthday</div>
-                                        <div class="px-4 py-2">Feb 06, 1998</div>
-                                    </div> --}}
+
                                 </div>
+
+                                {{-- <div class="mt-10 text-center ">
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        儲存
+                                    </button>
+                                </div> --}}
                             </div>
                             {{-- <button
                                 class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
@@ -102,18 +107,18 @@
                                         </li>
                                         <li>
                                             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-                                            role="alert">
-                                            <strong class="font-bold">有人在您的文章留言</strong>
-                                            <span class="block">關於…</span>
-                                            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                                                {{-- <svg class="fill-current h-6 w-6 text-red-500" role="button"
+                                                role="alert">
+                                                <strong class="font-bold">有人在您的文章留言</strong>
+                                                <span class="block">關於…</span>
+                                                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                                                    {{-- <svg class="fill-current h-6 w-6 text-red-500" role="button"
                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                                     <title>Close</title>
                                                     <path
                                                         d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
                                                 </svg> --}}
-                                                已讀
-                                            </span>
+                                                    已讀
+                                                </span>
                                             </div>
                                         </li>
                                         {{-- <li>
