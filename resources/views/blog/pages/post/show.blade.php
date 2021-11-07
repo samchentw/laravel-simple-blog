@@ -19,33 +19,35 @@
             {{-- end --}}
         </div>
 
-        <div class="mt-2 bg-gray-700 px-4 py-16  mx-auto sm:max-w-xl md:max-max-w-2xl lg:max-w-4xl md:px-24 lg:px-10 lg:py-20">
-            <div class="p-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
+        <div
+            class="mt-2 bg-gray-700 px-4 py-16  mx-auto sm:max-w-xl md:max-max-w-2xl lg:max-w-4xl md:px-24 lg:px-10 lg:py-20">
+            <div class="p-2">
+                {{-- for start --}}
+                <div class="dark:bg-gray-800 text-white mt-3   p-6 rounded-lg shadow-lg">
                     <div class="flex">
                         <div>
                             <div class="w-10 h-10 bg-cover bg-center rounded-full mr-3 shadow-inner"
-                                style="background-image: url('')">
+                                style="background-image: url('/images/weiweiBear.png')">
                             </div>
                         </div>
                         <div>
-                            <p class="text-gray-600 font-medium">Jack Cooper</p>
-                            <div class="flex items-center text-xs text-gray-600">
+                            <p class=" font-medium">Jack Cooper</p>
+                            <div class="flex items-center text-xs">
                                 <p>3 hours ago</p>
-                                <p class="px-1">•</p>
-                                <p>The frontier</p>
+                                {{-- <p class="px-1">•</p>
+                                <p>The frontier</p> --}}
                             </div>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <p class="text-gray-600 text-sm">
+                        <p class=" text-sm">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
                             cursus ornare nibh, sit amet interdum lorem suscipit at. Ut cursus
                             condimentum neque vel gravida.
                         </p>
                     </div>
                     <div class="mt-6 flex">
-                        <button class="flex items-center hover:opacity-75 mr-4">
+                        {{-- <button class="flex items-center hover:opacity-75 mr-4">
                             <i class="mr-2">
                                 <svg class="fill-current text-blue-500 w-6 h-6" height="512" viewBox="0 0 16 16"
                                     width="512">
@@ -54,8 +56,8 @@
                                 </svg>
                             </i>
                             <p class="mt-1 text-blue-500">Like</p>
-                        </button>
-                        <button class="flex items-center hover:opacity-75">
+                        </button> --}}
+                        {{-- <button class="flex items-center hover:opacity-75">
                             <i class="mr-2">
                                 <svg class="fill-current text-blue-500 w-6 h-6" height="512" viewBox="0 0 511.072 511.072"
                                     width="512">
@@ -64,9 +66,9 @@
                                 </svg>
                             </i>
                             <p class="mt-1 text-blue-500">64 Comments</p>
-                        </button>
+                        </button> --}}
                     </div>
-                    <div class="mt-6 border-gray-100 border-t pt-4 flex justify-between">
+                    {{-- <div class="mt-6 border-gray-100 border-t pt-4 flex justify-between">
                         <input placeholder="Add comment" class="placeholder-gray-300 text-gray-700 focus:outline-none"
                             type="text">
                         <div class="flex">
@@ -92,9 +94,28 @@
                                 </i>
                             </button>
                         </div>
+                    </div> --}}
+                </div>
+                {{-- for end --}}
+
+
+                <div>
+                    <div class="mt-6 border-gray-100 border-t pt-4 flex justify-between">
+                        <textarea class="form-textarea mt-1 block w-full" rows="3"
+                            placeholder="說一些你想說的話吧！"></textarea>
+                        <div class="flex">
+                            <button class="bg-blue-500  ml-3
+                            hover:bg-blue-700 text-white font-bold 
+                            py-1 px-2 rounded-full">
+                                送出
+                              </button>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
+
+
 
         </div>
     </div>
