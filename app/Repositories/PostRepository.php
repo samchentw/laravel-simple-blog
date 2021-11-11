@@ -19,7 +19,7 @@ class PostRepository extends Repository
 
     public function getPostByIdWithSlug($id, $slug)
     {
-        return Post::with(['tags', 'category', 'user'])
+        return Post::with(['tags', 'category', 'user', 'comments.user'])
             ->whereId($id)->whereSlug($slug)->first();
     }
 

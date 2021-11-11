@@ -15,6 +15,10 @@
                         <!-- About Section -->
                         <div class="p-3 shadow-sm rounded-sm">
                             <div class="w-full bg-gray-600 dark:text-white">
+                                <template x-if="posts.length ==0">
+                                    <div>目前你無任何文章！</div>
+                                </template>
+
                                 <template x-for="(post) in posts">
                                     <span>
                                         <div class="px-6 py-4">
@@ -24,7 +28,8 @@
                                             <p class="leading-normal text-gray-700">
                                                 <span class="text-gray-600 mt-2 dark:text-white ck-content" x-html="post.excerpt"></span>
                                             </p>
-                                            <div>
+                                            
+                                            <div class="mt-3">
                                                 <a x-bind:href="'/post/edit/'+post.id">編輯</a>
                                                 <a href="javascript:void(0)" x-on:click="deletePost(post.id)">刪除</a>
                                             </div>
