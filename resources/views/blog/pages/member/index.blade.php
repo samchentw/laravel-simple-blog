@@ -9,7 +9,7 @@
                     <!-- Left Side -->
                     @include('blog.components.member_sidebar')
                     <!-- Right Side -->
-                    <div class="w-full md:w-9/12 mx-2 h-auto">
+                    <div class="w-full md:w-9/12 mx-2 h-auto" x-data="pageData">
                         <!-- Profile tab -->
                         <!-- About Section -->
                         <div class="bg-white p-3 shadow-sm rounded-sm">
@@ -87,48 +87,36 @@
                                         </span>
                                         <span class="tracking-wide">通知</span>
                                     </div>
-                                    {{-- <div>目前無任何訊息</div> --}}
+
+                                    <template x-if="notifications.length == 0">
+                                        <div>目前無任何訊息</div>
+                                    </template>
+
+
                                     <ul class="list-inside space-y-2">
-                                        <li>
-                                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-                                                role="alert">
-                                                <strong class="font-bold">系統公告</strong>
-                                                <span class="block">本月2號到5日為本系統維護時間。</span>
-                                                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                                                    {{-- <svg class="fill-current h-6 w-6 text-red-500" role="button"
-                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                        <title>Close</title>
-                                                        <path
-                                                            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
-                                                    </svg> --}}
-                                                    已讀
-                                                </span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-                                                role="alert">
-                                                <strong class="font-bold">有人在您的文章留言</strong>
-                                                <span class="block">關於…</span>
-                                                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                                                    {{-- <svg class="fill-current h-6 w-6 text-red-500" role="button"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                    <title>Close</title>
-                                                    <path
-                                                        d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
-                                                </svg> --}}
-                                                    已讀
-                                                </span>
-                                            </div>
-                                        </li>
-                                        {{-- <li>
-                                            <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                        </li>
-                                        <li>
-                                            <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                            <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                        </li> --}}
+                                        <template x-for="notification in notifications">
+                                            <li>
+                                                <div x-bind:class="notification.read_at?
+                                                'bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative':
+                                                'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative' "
+                                                    role="alert">
+                                                    <strong class="font-bold"
+                                                        x-text="notification.data.title"></strong>
+                                                    <span class="block" x-html="notification.data.message"></span>
+                                                    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                                                        <template x-if="notification.read_at">
+                                                            <span>已讀</span>
+                                                        </template>
+
+                                                        <template x-if="!notification.read_at">
+                                                            <span>未讀</span>
+                                                        </template>
+
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </template>
+
                                     </ul>
                                 </div>
                                 {{-- <div>
@@ -173,7 +161,10 @@
 <script>
     function pageData() {
         return {
-            init() {}
+            notifications: @json($notifications),
+            init() {
+                // console.log(this.notifications)
+            }
         }
     }
 </script>

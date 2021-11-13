@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Repositories\CategoryRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\TagRepository;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -24,10 +25,24 @@ class PostController extends Controller
         $this->tagRepository = $TagRepository;
     }
 
-    public function show($id, $slug)
+    public function show($id, $slug, Request $request)
     {
-        $post = $this->postRepository->getPostByIdWithSlug($id, $slug);
+        $post = $this->postRepository->getPostByIdWithRelation($id);
+
         if ($post == null) abort(404);
+        else if ($post->slug !=  $slug) {
+            return redirect("/post/show/{$id}/{$post->slug}");
+        }
+        
+        if (Auth::check()) {
+            $user = $request->user();
+            foreach ($user->notifications as $notification) {
+                if ($notification->data['type'] == 'post' && $notification->data['target_id'] == $id) {
+                    $notification->markAsRead();
+                }
+            }
+        }
+
         return view('blog.pages.post.show', ['post' => $post]);
     }
 
