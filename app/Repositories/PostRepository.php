@@ -17,10 +17,10 @@ class PostRepository extends Repository
         return Post::class;
     }
 
-    public function getPostByIdWithSlug($id, $slug)
+    public function getPostByIdWithRelation($id)
     {
         return Post::with(['tags', 'category', 'user', 'comments.user'])
-            ->whereId($id)->whereSlug($slug)->first();
+            ->whereId($id)->first();
     }
 
     public function getPostPage()
