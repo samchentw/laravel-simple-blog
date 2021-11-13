@@ -14,7 +14,7 @@
                    bg-gray-600 rounded cursor-pointer hover:bg-gray-500">{{ $tag->name }}</a>
                 @endforeach
             </div>
-            <div class="mt-5 ck-content ">
+            <div class="mt-5 ck-content text-white">
                 {!! $post->body !!}
             </div>
             {{-- end --}}

@@ -13,6 +13,10 @@
 	--ck-sample-editor-z-index: 10;
 }
 
+.ck-content {
+    color: #fff;
+}
+
 /* --------- EDITOR STYLES  ---------------------------------------------------------------------------------------- */
 
 .editor__editable,
