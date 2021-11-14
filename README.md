@@ -1,5 +1,6 @@
 # Laravel Simple Blog
 
+[![simple-blog-test](https://github.com/samchentw/laravel-simple-blog/actions/workflows/laravel.yml/badge.svg?branch=develop)](https://github.com/samchentw/laravel-simple-blog/actions/workflows/laravel.yml)
 ## Feature  
 1.分前台(blade,alpine.js)、後台(vue.js,jetstream inertia)頁面。  
 2.前台會員功能：登入、註冊、忘記密碼、修改個人資料及密碼。  
