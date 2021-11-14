@@ -28,6 +28,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/post/{id}', [API\PostController::class, 'update']);
     Route::delete('/post/{id}', [API\PostController::class, 'delete']);
 
+    Route::post('/comment',[API\CommentController::class,'create']);
+    
     // 類別管理
     Route::resource('category', API\CategoryController::class)->except(['create','edit']);
 

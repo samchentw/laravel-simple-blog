@@ -5,7 +5,7 @@ namespace App\Helpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-
+use App\Models\Post;
 
 class PostHelper
 {
@@ -21,5 +21,9 @@ class PostHelper
     public static function makeExcerpt(string $body, int $length = 150)
     {
         return Str::limit(strip_tags($body), $length);
+    }
+
+    public static function makePostUrl(Post $post){
+        return "/post/show/{$post->id}/{$post->slug}";
     }
 }

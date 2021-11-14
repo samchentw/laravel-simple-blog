@@ -22,7 +22,7 @@ class DeleteAccountTest extends TestCase
         $response = $this->delete('/user', [
             'password' => 'password',
         ]);
-
+        
         $this->assertNull($user->fresh());
     }
 
