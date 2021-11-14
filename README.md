@@ -21,7 +21,7 @@
 
 ## Install
 ```sh
-$ git clone https://github.com/samchentw/blog.git
+$ git clone https://github.com/samchentw/laravel-simple-blog.git
 $ cp .env.example .env
 $ composer install
 $ npm install
@@ -31,5 +31,4 @@ $ php artisan db:seed
 ## Unit Test
 ```sh
 $ php artisan test
-
 ```
