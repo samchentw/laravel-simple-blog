@@ -8,7 +8,7 @@
 5.通知會員文章有新留言。  
 6.後台推送系統通知功能。
 
-
+ 
 ## Use
 [Laravel](https://laravel.com/)  
 [Blade](https://laravel.com/docs/8.x/blade)  
@@ -31,4 +31,5 @@ $ php artisan db:seed
 ## Unit Test
 ```sh
 $ php artisan test
+
 ```
