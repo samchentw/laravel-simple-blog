@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\Admin\BlogController;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +16,7 @@ Route::name('blog.')->group(function () {
     Route::middleware(['auth:sanctum'])->group(function () {
         Route::get('/verify', [Blog\BlogController::class, 'verify'])->name('verify');
     });
-
+    Route::get('/member/forgot-password', [Blog\BlogController::class, 'forgotPassword'])->name('forgot_password');
 
     Route::get('/tag/{id}', [Blog\BlogController::class, 'tagPost']);
     // post

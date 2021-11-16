@@ -20,7 +20,7 @@
                 <div class="mt-4">
                     <div class="flex items-center justify-between">
                         <label for="password" class="block text-sm text-gray-800 dark:text-gray-200">密碼</label>
-                        <a href="#" class="text-xs text-gray-600 dark:text-gray-400 hover:underline">忘記密碼?</a>
+                        <a href="{{ route('blog.forgot_password') }}" class="text-xs text-gray-600 dark:text-gray-400 hover:underline">忘記密碼?</a>
                     </div>
                     <x-jet-input
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
