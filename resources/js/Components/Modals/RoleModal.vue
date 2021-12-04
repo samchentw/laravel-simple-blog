@@ -158,7 +158,7 @@
 </template>
 
 <script>
-import CommonSwitch from "@/components/Switch/CommonSwitch";
+import CommonSwitch from "@/Components/Switch/CommonSwitch";
 export default {
   props: {
     id: {

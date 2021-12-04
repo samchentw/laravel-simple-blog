@@ -20,7 +20,7 @@
 </template>
 <script>
 import { Inertia } from "@inertiajs/inertia";
-import Narbar from "@/components/Navbars/Narbar.vue";
+import Narbar from "@/Components/Navbars/Narbar.vue";
 import Sidebar from "@/Components/Sidebar/Sidebar.vue";
 
 export default {
