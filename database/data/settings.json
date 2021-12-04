@@ -1,33 +1,70 @@
 [
     {
-        "display_name": "範例全域參數-數字",
+        "display_name": "\u7bc4\u4f8b\u5168\u57df\u53c3\u6578-\u6578\u5b57",
         "type": "number",
         "sort": 2,
         "key": "example.category_limite",
-        "value": "4",
+        "value": 100,
         "provider_key": 0,
         "provider_name": "G"
     },
     {
-        "display_name": "範例全域參數-標題",
+        "display_name": "\u7bc4\u4f8b\u5168\u57df\u53c3\u6578-\u6a19\u984c",
         "type": "string",
         "sort": 1,
         "key": "example.title",
-        "value": "後台系統",
+        "value": "\u5f8c\u53f0\u7cfb\u7d71",
         "provider_key": 0,
         "provider_name": "G"
     },
     {
-        "display_name": "範例使用者參數",
+        "display_name": "\u7bc4\u4f8b\u4f7f\u7528\u8005\u53c3\u6578",
         "type": "number",
         "sort": 0,
         "key": "example.user.count",
-        "value": "1",
+        "value": 1,
         "provider_key": 0,
         "provider_name": "U"
     },
     {
-        "display_name": "文字編輯器金鑰",
+        "display_name": "\u6e2c\u8a66boolean",
+        "type": "boolean",
+        "sort": 0,
+        "key": "test.boolean",
+        "value": true,
+        "provider_key": 0,
+        "provider_name": "G"
+    },
+    {
+        "display_name": "\u6e2c\u8a66json",
+        "type": "json",
+        "sort": 0,
+        "key": "test.json",
+        "value": [
+            {
+                "value:": "123"
+            },
+            {
+                "value:": "456"
+            },
+            {
+                "value:": "789"
+            }
+        ],
+        "provider_key": 0,
+        "provider_name": "G"
+    },
+    {
+        "display_name": "\u6e2c\u8a66\u65e5\u671f",
+        "type": "date",
+        "sort": 0,
+        "key": "test.date",
+        "value": "2021-03-30",
+        "provider_key": 0,
+        "provider_name": "G"
+    },
+    {
+        "display_name": "\u6587\u5b57\u7de8\u8f2f\u5668\u91d1\u9470",
         "type": "string",
         "sort": 0,
         "key": "tinymce.api.key",
@@ -106,5 +143,14 @@
         "value": "Laravel",
         "provider_key": 0,
         "provider_name": "G"
+    },
+    {
+        "display_name": "\u6e2c\u8a66\u5566",
+        "type": "string",
+        "key": "test.my.setting",
+        "sort": 0,
+        "value": "\u4f60\u597d",
+        "provider_key": 0,
+        "provider_name": "A"
     }
 ]

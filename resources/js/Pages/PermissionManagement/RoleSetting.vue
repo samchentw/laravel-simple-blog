@@ -1,7 +1,7 @@
 <template>
-  <AppLayout title="Role">
+  <AppLayout title="角色管理">
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Role</h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">角色管理</h2>
     </template>
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
       <div class="container mb-6 pt-5 px-4 mx-auto">
@@ -9,35 +9,81 @@
       </div>
 
       <div class="container mb-6 px-4 mx-auto">
-        <table>
-          <tr>
-            <th>名稱</th>
-            <th>是否為預設</th>
-            <th>建立時間</th>
-            <th>修改時間</th>
-            <th></th>
-          </tr>
-          <tr v-for="role in roles">
-            <td>{{ role.name }}</td>
-            <td>{{ role.is_default }}</td>
-            <td>{{ role.created_at }}</td>
-            <td>{{ role.updated_at }}</td>
-            <td>
-              <div class="space-x-4">
-                <div class="inline-block">
-                  <RoleModal :id="role.id" @refresh="refresh()" />
-                </div>
-
-                <div class="inline-block">
-                  <a v-on:click="deleteRole(role.id)" href="javascript:void(0)">刪除</a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr class="text-base">
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider"
+                    >
+                      角色名稱
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider"
+                    >
+                      是否為預設
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider"
+                    >
+                      建立時間
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider"
+                    >
+                      修改時間
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider"
+                    ></th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr v-for="role in roles" v-bind:key="role.id">
+                    <td class="px-6 py-4 whitespace-nowrap">{{ role.name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        v-if="role.is_default"
+                        class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-green-600 rounded-full"
+                        >是</span
+                      >
+                      <span
+                        v-if="!role.is_default"
+                        class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full"
+                        >否</span
+                      >
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ role.created_at }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ role.updated_at }}</td>
+                    <td class="px-6 py-4">
+                      <div >
+                        <div class="inline-block mr-3">
+                          <RoleModal :id="role.id" @refresh="refresh()" />
+                        </div>
+                        
+                        <div class="inline-block whitespace-nowrap">
+                          <a class="text-sm" v-on:click="deleteRole(role.id)" href="javascript:void(0)"
+                            >刪除</a
+                          >
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
 
-       <div class="text-center">
+      <div class="text-center">
         <CommonPagination
           :pageCount="pageData.last_page"
           :currentPath="pageData.current_page"
@@ -58,7 +104,7 @@ export default {
   components: {
     AppLayout,
     RoleModal,
-    CommonPagination
+    CommonPagination,
   },
   data() {
     return {};
@@ -93,22 +139,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>

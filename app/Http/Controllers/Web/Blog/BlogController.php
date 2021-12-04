@@ -59,4 +59,8 @@ class BlogController extends Controller
     {
         return view('blog.pages.verify');
     }
+
+    public function forgotPassword(){
+        return view('blog.pages.forgot_password');
+    }
 }

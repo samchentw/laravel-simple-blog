@@ -9,6 +9,7 @@ return [
      * G(全域)、U(使用者) 為預設
      */
     "customer_provider_name" => [
+        'A','B'
     ],
 
 
@@ -21,4 +22,6 @@ return [
      * 是否啟用setting預設api
      */
     "setting_api_enable" => true,
+
+    "setting_web_enable" => true
 ];
