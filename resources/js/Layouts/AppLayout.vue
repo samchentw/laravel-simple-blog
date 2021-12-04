@@ -562,7 +562,7 @@ export default {
       showingNavigationDropdown: false,
       routes: [
         {
-          displayName: "互動管理",
+          displayName: "儀表板",
           hrefName: "admin.dashboard",
           check: true,
         },

@@ -1,7 +1,7 @@
 <template>
-  <AppLayout title="User">
+  <AppLayout title="使用者管理">
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">User</h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">使用者管理</h2>
     </template>
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
       <div class="container mb-6 pt-5 px-4 mx-auto">
@@ -9,32 +9,64 @@
       </div>
 
       <div class="container mb-6 px-4 mx-auto">
-        <table>
-          <tr>
-            <th>名稱</th>
-            <th>email</th>
-            <th>建立時間</th>
-            <th>修改時間</th>
-            <th></th>
-          </tr>
-          <tr v-for="user in users">
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.created_at }}</td>
-            <td>{{ user.updated_at }}</td>
-            <td>
-              <div class="space-x-4">
-                <div class="inline-block">
-                  <UserModal :id="user.id" @refresh="refresh()" />
-                </div>
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr class="text-base">
+                   
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left font-medium text-gray-500 tracking-wider"
+                    >
+                      名稱
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left font-medium text-gray-500 tracking-wider"
+                    >
+                      email
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left font-medium text-gray-500 tracking-wider"
+                    >
+                      建立時間
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left font-medium text-gray-500 tracking-wider"
+                    >
+                      修改時間
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left font-medium text-gray-500 tracking-wider"
+                    ></th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <tr v-for="user in users" v-bind:key="user.id">
+                    <td class="px-6 py-4 whitespace-nowrap">{{ user.name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ user.email }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ user.created_at }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ user.updated_at }}</td>
+                    <td class="px-6 py-4 ">
+                      <div>
+                        <div class="inline-block mr-3">
+                          <UserModal :id="user.id" @refresh="refresh()" />
+                        </div>
 
-                <div class="inline-block">
-                  <!-- <a v-on:click="deleteRole(user.id)" href="javascript:void(0)">刪除</a> -->
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
+                      
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="text-center">
@@ -52,6 +84,7 @@ import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "@/Layouts/AppLayout";
 import UserModal from "@/Components/Modals/UserModal";
 import CommonPagination from "@/Components/Pagination/CommonPagination";
+import { Link } from "@inertiajs/inertia-vue3";
 
 export default {
   props: ["pageData"],
@@ -59,12 +92,12 @@ export default {
     AppLayout,
     UserModal,
     CommonPagination,
+    Link,
   },
   data() {
     return {};
   },
-  created: function () {
-  },
+  created: function () {},
   computed: {
     users() {
       return this.pageData.data.map((b) => {
@@ -84,22 +117,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
