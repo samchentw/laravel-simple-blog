@@ -1,4 +1,8 @@
-<?php return [ /* |-------------------------------------------------------------------------- | Validation Language Lines |-------------------------------------------------------------------------- | | The following language lines contain the default error messages used by | the validator class. Some of these rules have multiple versions such | as the size rules. Feel free to tweak each of these messages here. | */
+<?php 
+
+$validation_attributes = require_once(__DIR__.'/models.php');
+
+$input = [ /* |-------------------------------------------------------------------------- | Validation Language Lines |-------------------------------------------------------------------------- | | The following language lines contain the default error messages used by | the validator class. Some of these rules have multiple versions such | as the size rules. Feel free to tweak each of these messages here. | */
     'accepted' => '注意: :attribute 為必填.', 'active_url' => '注意: :attribute 是不可用的連結.', 'after' =>
     '注意: :attribute 必須為一個在 :date 之後的時間.', 'alpha' => '注意: :attribute 只允許全部為字母.', 'alpha_dash' => '注意: :attribute 只允許字幕，數字和_連線符.', 'alpha_num' => '注意: :attribute 只允許字幕和數字.', 'array' => '注意: :attribute 必須為陣列.',
     'before' => '注意: :attribute 必須為一個在 :date 之前的時間.',
@@ -40,3 +44,7 @@
     'custom' => ['attribute-name' => ['rule-name' => 'custom-message',],],
     /* |-------------------------------------------------------------------------- | Custom Validation Attributes |-------------------------------------------------------------------------- | | 注意: following language lines are used to swap attribute place-holders | with something more reader friendly such as E-Mail Address instead | of "email". This simply helps us make messages a little cleaner. | */ 'attributes' => [], 'identitycards' => '身份證號錯誤！',
 ];
+
+$result = array_merge($input,$validation_attributes);
+
+return $result;
